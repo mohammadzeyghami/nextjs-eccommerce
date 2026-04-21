@@ -17,6 +17,7 @@ import {
 } from "@/src/share-components/atoms/card";
 import { Input } from "@/src/share-components/molecules/inputs/input";
 import { Separator } from "@/src/share-components/atoms/separator";
+import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
 import { cn } from "@/lib/utils";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
 
   return (
     <main className="pt-20 pb-32 bg-background">
+      <AnimatedSections>
       {/* Hero Slider (Editorial Display) */}
       <section className="px-6 mb-12">
         <Card className="max-w-7xl mx-auto h-[480px] p-0 relative border-none shadow-2xl">
@@ -260,6 +262,7 @@ export default function Home() {
           {t('shop.footer.copyright')}
         </div>
       </footer>
+      </AnimatedSections>
     </main>
   );
 }

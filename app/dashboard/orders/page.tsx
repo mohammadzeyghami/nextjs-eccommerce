@@ -4,49 +4,50 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { OrderHeader } from '@/src/modules/dashboard/orders/components/OrderHeader';
 import { OrderCard } from '@/src/modules/dashboard/orders/components/OrderCard';
+import { AnimatedSections } from '@/src/share-components/molecules/animated-sections';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MOCK_ORDERS = [
   {
     id: 'ORD-8942',
-    customer: 'علی رضایی',
-    date: '۲۴ مهر ۱۴۰۲ - ۱۴:۳۰',
-    amount: '۱,۲۵۰,۰۰۰',
+    customer: 'admin.orders_management.mock_orders.0.customer',
+    date: 'admin.orders_management.mock_orders.0.date',
+    amount: 'admin.orders_management.mock_orders.0.amount',
     status: 'pending' as const,
   },
   {
     id: 'ORD-8941',
-    customer: 'سارا محمدی',
-    date: '۲۳ مهر ۱۴۰۲ - ۱۰:۱۵',
-    amount: '۸۵۰,۰۰۰',
+    customer: 'admin.orders_management.mock_orders.1.customer',
+    date: 'admin.orders_management.mock_orders.1.date',
+    amount: 'admin.orders_management.mock_orders.1.amount',
     status: 'shipped' as const,
   },
   {
     id: 'ORD-8940',
-    customer: 'محمد حسینی',
-    date: '۲۲ مهر ۱۴۰۲ - ۱۶:۴۵',
-    amount: '۳,۴۰۰,۰۰۰',
+    customer: 'admin.orders_management.mock_orders.2.customer',
+    date: 'admin.orders_management.mock_orders.2.date',
+    amount: 'admin.orders_management.mock_orders.2.amount',
     status: 'cancelled' as const,
   },
   {
     id: 'ORD-8939',
-    customer: 'زهرا سلطانی',
-    date: '۲۱ مهر ۱۴۰۲ - ۱۱:۲۰',
-    amount: '۲,۱۰۰,۰۰۰',
+    customer: 'admin.orders_management.mock_orders.3.customer',
+    date: 'admin.orders_management.mock_orders.3.date',
+    amount: 'admin.orders_management.mock_orders.3.amount',
     status: 'shipped' as const,
   },
   {
     id: 'ORD-8938',
-    customer: 'بهرام رادان',
-    date: '۲۰ مهر ۱۴۰۲ - ۰۹:۰۰',
-    amount: '۵,۶۰۰,۰۰۰',
+    customer: 'admin.orders_management.mock_orders.4.customer',
+    date: 'admin.orders_management.mock_orders.4.date',
+    amount: 'admin.orders_management.mock_orders.4.amount',
     status: 'pending' as const,
   },
   {
     id: 'ORD-8937',
-    customer: 'نیکی کریمی',
-    date: '۱۹ مهر ۱۴۰۲ - ۱۸:۳۰',
-    amount: '۷۸۰,۰۰۰',
+    customer: 'admin.orders_management.mock_orders.5.customer',
+    date: 'admin.orders_management.mock_orders.5.date',
+    amount: 'admin.orders_management.mock_orders.5.amount',
     status: 'shipped' as const,
   },
 ];
@@ -55,12 +56,19 @@ export default function OrdersManagementPage() {
   const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState('all');
 
+  const localizedOrders = MOCK_ORDERS.map((order) => ({
+    ...order,
+    customer: t(order.customer),
+    date: t(order.date),
+    amount: t(order.amount),
+  }));
+
   const filteredOrders = activeFilter === 'all' 
-    ? MOCK_ORDERS 
-    : MOCK_ORDERS.filter(order => order.status === activeFilter);
+    ? localizedOrders
+    : localizedOrders.filter(order => order.status === activeFilter);
 
   return (
-    <div className="space-y-12">
+    <AnimatedSections className="space-y-12">
       <OrderHeader activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
       
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -93,6 +101,6 @@ export default function OrdersManagementPage() {
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"></path>
         </svg>
       </motion.button>
-    </div>
+    </AnimatedSections>
   );
 }

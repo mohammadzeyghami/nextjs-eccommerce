@@ -9,12 +9,14 @@ import { Button } from "@/src/share-components/atoms/button";
 import { Input } from "@/src/share-components/molecules/inputs/input";
 import { Card, CardContent } from "@/src/share-components/atoms/card";
 import { Badge } from "@/src/share-components/atoms/badge";
+import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
 
 export default function ProductsPage() {
   const { t } = useTranslation();
 
   return (
-    <main className="flex-grow max-w-screen-xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 pb-32 mb-8 flex flex-col md:flex-row gap-12 bg-background">
+    <main className="flex-grow max-w-screen-xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 pb-32 mb-8 bg-background">
+      <AnimatedSections className="flex flex-col md:flex-row gap-12">
       {/* Sidebar Filters */}
       <aside className="hidden md:flex md:w-64 flex-col space-y-8 flex-shrink-0">
         <Card className="p-8 rounded-[2rem] border-none shadow-xl bg-muted/20 dark:bg-muted/10 h-fit">
@@ -60,7 +62,7 @@ export default function ProductsPage() {
                 <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                   <Image 
                     src={`https://picsum.photos/seed/accessories${item}/600/800`} 
-                    alt="Product" 
+                    alt={t('shop_products.product_image_alt')} 
                     fill 
                     className="object-cover group-hover:scale-105 transition-transform duration-700" 
                     referrerPolicy="no-referrer" 
@@ -86,6 +88,7 @@ export default function ProductsPage() {
           ))}
         </div>
       </section>
+      </AnimatedSections>
     </main>
   );
 }

@@ -7,12 +7,14 @@ import { Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/src/share-components/atoms/button";
 import { Input } from "@/src/share-components/molecules/inputs/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/src/share-components/atoms/card";
+import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
 
 export default function ResetPasswordPage() {
   const { t } = useTranslation();
 
   return (
     <main className="w-full max-w-md mx-auto pt-20 px-4">
+      <AnimatedSections>
       <Card className="shadow-2xl border-none overflow-hidden bg-background">
         <div className="h-2 w-full bg-gradient-to-r from-primary to-primary/60"></div>
         <CardHeader className="text-center space-y-2 pt-10 px-8">
@@ -54,6 +56,7 @@ export default function ResetPasswordPage() {
           </div>
         </CardContent>
       </Card>
+      </AnimatedSections>
     </main>
   );
 }

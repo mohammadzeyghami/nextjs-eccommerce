@@ -4,41 +4,42 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ProductHeader } from '@/src/modules/dashboard/products/components/ProductHeader';
 import { ProductItem } from '@/src/modules/dashboard/products/components/ProductItem';
+import { AnimatedSections } from '@/src/share-components/molecules/animated-sections';
 import { motion } from 'framer-motion';
 
 const MOCK_PRODUCTS = [
   {
-    title: 'هدفون استودیو پرو',
-    category: 'صوتی',
-    price: '۱۲,۵۰۰,۰۰۰',
+    title: 'admin.products_management.mock_products.0.title',
+    category: 'admin.products_management.mock_products.0.category',
+    price: 'admin.products_management.mock_products.0.price',
     stock: 24,
     image: 'https://picsum.photos/seed/audio1/400/400',
   },
   {
-    title: 'ساعت هوشمند سری ۸',
-    category: 'گجت پوشیدنی',
-    price: '۱۸,۲۰۰,۰۰۰',
+    title: 'admin.products_management.mock_products.1.title',
+    category: 'admin.products_management.mock_products.1.category',
+    price: 'admin.products_management.mock_products.1.price',
     stock: 3,
     image: 'https://picsum.photos/seed/watch2/400/400',
   },
   {
-    title: 'اسپیکر هوشمند اکو',
-    category: 'خانه هوشمند',
-    price: '۴,۹۰۰,۰۰۰',
+    title: 'admin.products_management.mock_products.2.title',
+    category: 'admin.products_management.mock_products.2.category',
+    price: 'admin.products_management.mock_products.2.price',
     stock: 85,
     image: 'https://picsum.photos/seed/speaker1/400/400',
   },
   {
-    title: 'کیف چرم مینیمال',
-    category: 'مد و پوشاک',
-    price: '۲,۳۰۰,۰۰۰',
+    title: 'admin.products_management.mock_products.3.title',
+    category: 'admin.products_management.mock_products.3.category',
+    price: 'admin.products_management.mock_products.3.price',
     stock: 12,
     image: 'https://picsum.photos/seed/bag2/400/400',
   },
   {
-    title: 'گلدان کانسپت نوردیک',
-    category: 'دکوراسیون',
-    price: '۸۵۰,۰۰۰',
+    title: 'admin.products_management.mock_products.4.title',
+    category: 'admin.products_management.mock_products.4.category',
+    price: 'admin.products_management.mock_products.4.price',
     stock: 5,
     image: 'https://picsum.photos/seed/decor1/400/400',
   },
@@ -47,12 +48,19 @@ const MOCK_PRODUCTS = [
 export default function ProductsManagementPage() {
   const { t } = useTranslation();
 
+  const localizedProducts = MOCK_PRODUCTS.map((product) => ({
+    ...product,
+    title: t(product.title),
+    category: t(product.category),
+    price: t(product.price),
+  }));
+
   return (
-    <div className="space-y-12">
+    <AnimatedSections className="space-y-12">
       <ProductHeader />
       
       <div className="flex flex-col gap-5">
-        {MOCK_PRODUCTS.map((product, index) => (
+        {localizedProducts.map((product, index) => (
           <ProductItem 
             key={index} 
             product={product} 
@@ -80,6 +88,6 @@ export default function ProductsManagementPage() {
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"></path>
         </svg>
       </motion.button>
-    </div>
+    </AnimatedSections>
   );
 }

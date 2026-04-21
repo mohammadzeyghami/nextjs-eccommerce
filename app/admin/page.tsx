@@ -27,6 +27,7 @@ import {
   TableHeader, 
   TableRow 
 } from "@/src/share-components/atoms/table";
+import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -64,14 +65,14 @@ export default function AdminDashboard() {
   ];
 
   const recentOrders = [
-    { id: "ORD-8924", client: "سارا عباسی", product: "عطر نیش لاوندر", date: "۱۴:۳۰ - ۲۴ مهر", status: "completed", amount: "۴,۲۰۰,۰۰۰" },
-    { id: "ORD-8923", client: "محمد نوری", product: "ست مراقبت پوست", date: "۱۲:۱۵ - ۲۴ مهر", status: "processing", amount: "۱,۸۵۰,۰۰۰" },
-    { id: "ORD-8922", client: "رضا احمدی", product: "شمع دست‌ساز صندل", date: "۱۰:۴۵ - ۲۴ مهر", status: "cancelled", amount: "۹۸۰,۰۰۰" },
-    { id: "ORD-8921", client: "مریم کریمی", product: "ادکلن آریا سیگنچر", date: "۰۹:۲۰ - ۲۴ مهر", status: "completed", amount: "۵,۶۰۰,۰۰۰" },
+    { id: "ORD-8924", client: t('admin.dashboard.recent_orders_data.0.client'), product: t('admin.dashboard.recent_orders_data.0.product'), date: t('admin.dashboard.recent_orders_data.0.date'), status: "completed", amount: t('admin.dashboard.recent_orders_data.0.amount') },
+    { id: "ORD-8923", client: t('admin.dashboard.recent_orders_data.1.client'), product: t('admin.dashboard.recent_orders_data.1.product'), date: t('admin.dashboard.recent_orders_data.1.date'), status: "processing", amount: t('admin.dashboard.recent_orders_data.1.amount') },
+    { id: "ORD-8922", client: t('admin.dashboard.recent_orders_data.2.client'), product: t('admin.dashboard.recent_orders_data.2.product'), date: t('admin.dashboard.recent_orders_data.2.date'), status: "cancelled", amount: t('admin.dashboard.recent_orders_data.2.amount') },
+    { id: "ORD-8921", client: t('admin.dashboard.recent_orders_data.3.client'), product: t('admin.dashboard.recent_orders_data.3.product'), date: t('admin.dashboard.recent_orders_data.3.date'), status: "completed", amount: t('admin.dashboard.recent_orders_data.3.amount') },
   ];
 
   return (
-    <div className="space-y-10">
+    <AnimatedSections className="space-y-10">
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
         <div>
@@ -195,7 +196,7 @@ export default function AdminDashboard() {
                   <div className="relative size-16 rounded-2xl overflow-hidden bg-muted">
                     <Image 
                       src={`https://picsum.photos/seed/admin-prod${i}/200/200`} 
-                      alt="Product" 
+                      alt={t('admin.dashboard.product_image_alt')} 
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110" 
                       referrerPolicy="no-referrer"
@@ -203,10 +204,10 @@ export default function AdminDashboard() {
                   </div>
                   <div className="flex-grow">
                     <h4 className="font-headline font-black text-foreground group-hover:text-primary transition-colors">{t('shop_products.item_title')} {i}</h4>
-                    <p className="text-[10px] text-muted-foreground font-sans font-bold uppercase tracking-widest mt-1">۴۲ {t('shop.footer.journal')} فروش</p>
+                    <p className="text-[10px] text-muted-foreground font-sans font-bold uppercase tracking-widest mt-1">{t('admin.dashboard.top_product_sales', { count: 42 })}</p>
                   </div>
                   <div className="text-left rtl:text-right">
-                    <span className="font-headline font-black text-primary">۵.۶ م</span>
+                    <span className="font-headline font-black text-primary">{t('admin.dashboard.top_product_revenue')}</span>
                   </div>
                 </div>
               ))}
@@ -216,7 +217,7 @@ export default function AdminDashboard() {
               <div className="bg-primary/5 dark:bg-primary/10 rounded-3xl p-6 space-y-4">
                 <div className="flex justify-between items-center">
                   <p className="text-xs font-black text-primary uppercase tracking-widest">{t('admin.dashboard.sales_goal')}</p>
-                  <Badge variant="outline" className="text-[10px] bg-background">۷۲٪</Badge>
+                  <Badge variant="outline" className="text-[10px] bg-background">{t('admin.dashboard.sales_progress')}</Badge>
                 </div>
                 <Progress value={72} className="h-2" />
                 <div className="flex justify-between items-center text-[10px] font-black text-muted-foreground uppercase tracking-tighter">
@@ -245,6 +246,6 @@ export default function AdminDashboard() {
           </Card>
         </div>
       </div>
-    </div>
+    </AnimatedSections>
   );
 }

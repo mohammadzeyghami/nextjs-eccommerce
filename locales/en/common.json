@@ -14,7 +14,7 @@
   "change_theme": "Change Theme",
   "light": "Light",
   "dark": "Dark",
-  "persian": "فارسی",
+  "persian": "Persian",
   "english": "English",
   "app_name": "THE ARCHIVE",
   "dir": "ltr",
@@ -40,7 +40,8 @@
     "value2_title": "Silent Aesthetics",
     "value2_desc": "Designs that define space through their calm presence rather than shouting.",
     "value3_title": "Sustainability in Design",
-    "value3_desc": "Creating pieces that last for generations, beyond fleeting trends."
+    "value3_desc": "Creating pieces that last for generations, beyond fleeting trends.",
+    "gallery_alt": "Gallery image"
   },
   "cart": {
     "title": "Your Shopping Bag",
@@ -63,13 +64,15 @@
     "stock": "Availability",
     "stock_val": "Only 2 left in stock",
     "edition": "Special Edition",
-    "desc": "This unique piece embodies minimalist art and organic aesthetics. Handcrafted without a pottery wheel to achieve a natural and unexpected form."
+    "desc": "This unique piece embodies minimalist art and organic aesthetics. Handcrafted without a pottery wheel to achieve a natural and unexpected form.",
+    "thumbnail_alt": "Product thumbnail"
   },
   "shop_products": {
     "filters": "Filters",
     "search_placeholder": "Search in the Archive...",
     "clear_all": "Clear All",
-    "item_title": "Minimalist Leather Bag"
+    "item_title": "Minimalist Leather Bag",
+    "product_image_alt": "Product image"
   },
   "admin": {
     "dashboard": {
@@ -87,6 +90,7 @@
       "recent_orders": "Recent Orders",
       "see_all": "See All",
       "top_products": "Trending Products",
+      "product_image_alt": "Product image",
       "orders_table": {
         "client": "Client",
         "product": "Product",
@@ -100,8 +104,37 @@
         "cancelled": "Cancelled"
       },
       "sales_goal": "Monthly Sales Goal",
+      "sales_progress": "72%",
       "goal_completed": "72% Completed",
       "goal_target": "$400,000",
+      "top_product_sales": "{{count}} sales",
+      "top_product_revenue": "5.6M",
+      "recent_orders_data": [
+        {
+          "client": "Sara Abbasi",
+          "product": "Niche Lavender Perfume",
+          "date": "14:30 - Oct 24",
+          "amount": "4,200,000"
+        },
+        {
+          "client": "Mohammad Nouri",
+          "product": "Skincare Set",
+          "date": "12:15 - Oct 24",
+          "amount": "1,850,000"
+        },
+        {
+          "client": "Reza Ahmadi",
+          "product": "Handmade Sandalwood Candle",
+          "date": "10:45 - Oct 24",
+          "amount": "980,000"
+        },
+        {
+          "client": "Maryam Karimi",
+          "product": "Aria Signature Cologne",
+          "date": "09:20 - Oct 24",
+          "amount": "5,600,000"
+        }
+      ],
       "winter_campaign": "Winter Campaign",
       "winter_campaign_desc": "Winter festival settings require final approval.",
       "check_settings": "Review Settings"
@@ -115,7 +148,9 @@
       "logout": "Logout",
       "title": "Admin Panel",
       "admin_name": "Aria Rostami",
-      "admin_role": "Senior Admin"
+      "admin_role": "Senior Admin",
+      "profile_image_alt": "Admin profile image",
+      "server_live": "Server live"
     },
     "products_management": {
       "title": "Product Management",
@@ -127,7 +162,34 @@
       "unit": "Units",
       "edit": "Edit",
       "delete": "Delete",
-      "price": "Price"
+      "price": "Price",
+      "mock_products": [
+        {
+          "title": "Studio Pro Headphones",
+          "category": "Audio",
+          "price": "12,500,000"
+        },
+        {
+          "title": "Smartwatch Series 8",
+          "category": "Wearable",
+          "price": "18,200,000"
+        },
+        {
+          "title": "Echo Smart Speaker",
+          "category": "Smart Home",
+          "price": "4,900,000"
+        },
+        {
+          "title": "Minimal Leather Bag",
+          "category": "Fashion",
+          "price": "2,300,000"
+        },
+        {
+          "title": "Nordic Concept Vase",
+          "category": "Decor",
+          "price": "850,000"
+        }
+      ]
     },
     "orders_management": {
       "title": "Order Management",
@@ -140,7 +202,39 @@
       "customer": "Customer",
       "date": "Order Date",
       "total": "Total Amount",
-      "currency": "Toman"
+      "currency": "Toman",
+      "mock_orders": [
+        {
+          "customer": "Ali Rezaei",
+          "date": "Oct 24, 2023 - 14:30",
+          "amount": "1,250,000"
+        },
+        {
+          "customer": "Sara Mohammadi",
+          "date": "Oct 23, 2023 - 10:15",
+          "amount": "850,000"
+        },
+        {
+          "customer": "Mohammad Hosseini",
+          "date": "Oct 22, 2023 - 16:45",
+          "amount": "3,400,000"
+        },
+        {
+          "customer": "Zahra Soltani",
+          "date": "Oct 21, 2023 - 11:20",
+          "amount": "2,100,000"
+        },
+        {
+          "customer": "Bahram Radan",
+          "date": "Oct 20, 2023 - 09:00",
+          "amount": "5,600,000"
+        },
+        {
+          "customer": "Niki Karimi",
+          "date": "Oct 19, 2023 - 18:30",
+          "amount": "780,000"
+        }
+      ]
     }
   },
   "shop": {

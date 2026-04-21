@@ -8,6 +8,7 @@ import { ChevronRight, ShoppingBag, Settings2 } from "lucide-react";
 import { Button, buttonVariants } from "@/src/share-components/atoms/button";
 import { Card } from "@/src/share-components/atoms/card";
 import { Badge } from "@/src/share-components/atoms/badge";
+import { AnimatedSections, FadeInRandom } from "@/src/share-components/molecules/animated-sections";
 import { cn } from "@/lib/utils";
 
 export default function ProductDetailPage() {
@@ -16,6 +17,7 @@ export default function ProductDetailPage() {
   return (
     <>
       <main className="max-w-screen-xl mx-auto px-6 md:px-8 py-12 bg-background">
+        <AnimatedSections>
         <nav className="flex items-center text-sm text-muted-foreground mb-12 gap-2 uppercase tracking-widest font-sans">
           <Link href="/products" className="hover:text-primary transition-colors font-bold">{t('product.collection')}</Link>
           <ChevronRight className="size-4 rtl:rotate-180" />
@@ -38,7 +40,7 @@ export default function ProductDetailPage() {
                 <button key={thumb} className="aspect-square relative bg-muted/30 rounded-2xl overflow-hidden focus:outline-none ring-offset-background focus:ring-2 focus:ring-primary transition-all active:scale-95">
                   <Image 
                     src={`https://picsum.photos/seed/vase${thumb}/400/400`} 
-                    alt="Thumbnail" 
+                    alt={t('product.thumbnail_alt')} 
                     fill 
                     className="object-cover opacity-80 hover:opacity-100 transition-opacity" 
                     referrerPolicy="no-referrer" 
@@ -79,9 +81,10 @@ export default function ProductDetailPage() {
             </div>
           </section>
         </div>
+        </AnimatedSections>
       </main>
 
-      <div className="fixed bottom-0 left-0 w-full z-40 bg-background/80 backdrop-blur-xl shadow-[0_-10px_50px_rgba(0,0,0,0.1)] rounded-t-[2.5rem] border-t border-border">
+      <FadeInRandom className="fixed bottom-0 left-0 w-full z-40 bg-background/80 backdrop-blur-xl shadow-[0_-10px_50px_rgba(0,0,0,0.1)] rounded-t-[2.5rem] border-t border-border">
         <div className="max-w-screen-xl mx-auto px-8 py-6 flex items-center justify-between gap-8">
           <div className="hidden md:flex flex-col items-start">
             <span className="text-sm text-muted-foreground font-bold font-sans uppercase tracking-widest">{t('product.title')}</span>
@@ -94,7 +97,7 @@ export default function ProductDetailPage() {
             </Button>
           </div>
         </div>
-      </div>
+      </FadeInRandom>
     </>
   );
 }

@@ -15,7 +15,7 @@
   "light": "روشن",
   "dark": "تاریک",
   "persian": "فارسی",
-  "english": "English",
+  "english": "انگلیسی",
   "app_name": "آرشیو",
   "dir": "rtl",
   "login_title": "وارد حساب کاربری خود شوید",
@@ -40,7 +40,8 @@
     "value2_title": "زیبایی‌شناسی خاموش",
     "value2_desc": "طراحی‌هایی که به جای فریاد زدن، با حضور آرام خود فضا را تعریف می‌کنند.",
     "value3_title": "پایداری در طراحی",
-    "value3_desc": "خلق آثاری که فراتر از ترندهای زودگذر، برای نسل‌ها باقی می‌مانند."
+    "value3_desc": "خلق آثاری که فراتر از ترندهای زودگذر، برای نسل‌ها باقی می‌مانند.",
+    "gallery_alt": "تصویر گالری"
   },
   "cart": {
     "title": "سبد خرید شما",
@@ -63,13 +64,15 @@
     "stock": "موجودی",
     "stock_val": "تنها ۲ عدد باقیست",
     "edition": "نسخه ویژه",
-    "desc": "این قطعه منحصر به فرد، تجلی‌گر هنر مینیمالیستی و زیبایی‌شناسی ارگانیک است. با دست و بدون استفاده از چرخ سفالگری ساخته شده تا فرمی طبیعی و غیرمنتظره به خود بگیرد."
+    "desc": "این قطعه منحصر به فرد، تجلی‌گر هنر مینیمالیستی و زیبایی‌شناسی ارگانیک است. با دست و بدون استفاده از چرخ سفالگری ساخته شده تا فرمی طبیعی و غیرمنتظره به خود بگیرد.",
+    "thumbnail_alt": "تصویر بندانگشتی محصول"
   },
   "shop_products": {
     "filters": "فیلترها",
     "search_placeholder": "جستجو در آرشیو...",
     "clear_all": "پاک کردن همه",
-    "item_title": "کیف چرمی مینیمال"
+    "item_title": "کیف چرمی مینیمال",
+    "product_image_alt": "تصویر محصول"
   },
   "admin": {
     "dashboard": {
@@ -87,6 +90,7 @@
       "recent_orders": "آخرین سفارشات",
       "see_all": "مشاهده همه",
       "top_products": "محبوب‌ترین محصولات",
+      "product_image_alt": "تصویر محصول",
       "orders_table": {
         "client": "مشتری",
         "product": "محصول",
@@ -100,8 +104,37 @@
         "cancelled": "لغو شده"
       },
       "sales_goal": "هدف فروش ماهانه",
+      "sales_progress": "۷۲٪",
       "goal_completed": "۷۲٪ تکمیل شده",
       "goal_target": "۴۰۰ میلیون تومان",
+      "top_product_sales": "{{count}} فروش",
+      "top_product_revenue": "۵.۶ م",
+      "recent_orders_data": [
+        {
+          "client": "سارا عباسی",
+          "product": "عطر نیش لاوندر",
+          "date": "۱۴:۳۰ - ۲۴ مهر",
+          "amount": "۴,۲۰۰,۰۰۰"
+        },
+        {
+          "client": "محمد نوری",
+          "product": "ست مراقبت پوست",
+          "date": "۱۲:۱۵ - ۲۴ مهر",
+          "amount": "۱,۸۵۰,۰۰۰"
+        },
+        {
+          "client": "رضا احمدی",
+          "product": "شمع دست‌ساز صندل",
+          "date": "۱۰:۴۵ - ۲۴ مهر",
+          "amount": "۹۸۰,۰۰۰"
+        },
+        {
+          "client": "مریم کریمی",
+          "product": "ادکلن آریا سیگنچر",
+          "date": "۰۹:۲۰ - ۲۴ مهر",
+          "amount": "۵,۶۰۰,۰۰۰"
+        }
+      ],
       "winter_campaign": "کمپین زمستانی",
       "winter_campaign_desc": "تنظیمات جشنواره زمستانی نیاز به تایید نهایی دارد.",
       "check_settings": "بررسی تنظیمات"
@@ -115,7 +148,9 @@
       "logout": "خروج",
       "title": "پنل مدیریت",
       "admin_name": "آریا رستمی",
-      "admin_role": "مدیر ارشد"
+      "admin_role": "مدیر ارشد",
+      "profile_image_alt": "تصویر پروفایل مدیر",
+      "server_live": "سرور فعال"
     },
     "products_management": {
       "title": "مدیریت محصولات",
@@ -127,7 +162,34 @@
       "unit": "عدد",
       "edit": "ویرایش",
       "delete": "حذف",
-      "price": "قیمت"
+      "price": "قیمت",
+      "mock_products": [
+        {
+          "title": "هدفون استودیو پرو",
+          "category": "صوتی",
+          "price": "۱۲,۵۰۰,۰۰۰"
+        },
+        {
+          "title": "ساعت هوشمند سری ۸",
+          "category": "گجت پوشیدنی",
+          "price": "۱۸,۲۰۰,۰۰۰"
+        },
+        {
+          "title": "اسپیکر هوشمند اکو",
+          "category": "خانه هوشمند",
+          "price": "۴,۹۰۰,۰۰۰"
+        },
+        {
+          "title": "کیف چرم مینیمال",
+          "category": "مد و پوشاک",
+          "price": "۲,۳۰۰,۰۰۰"
+        },
+        {
+          "title": "گلدان کانسپت نوردیک",
+          "category": "دکوراسیون",
+          "price": "۸۵۰,۰۰۰"
+        }
+      ]
     },
     "orders_management": {
       "title": "مدیریت سفارشات",
@@ -140,12 +202,44 @@
       "customer": "مشتری",
       "date": "تاریخ ثبت",
       "total": "مبلغ کل",
-      "currency": "تومان"
+      "currency": "تومان",
+      "mock_orders": [
+        {
+          "customer": "علی رضایی",
+          "date": "۲۴ مهر ۱۴۰۲ - ۱۴:۳۰",
+          "amount": "۱,۲۵۰,۰۰۰"
+        },
+        {
+          "customer": "سارا محمدی",
+          "date": "۲۳ مهر ۱۴۰۲ - ۱۰:۱۵",
+          "amount": "۸۵۰,۰۰۰"
+        },
+        {
+          "customer": "محمد حسینی",
+          "date": "۲۲ مهر ۱۴۰۲ - ۱۶:۴۵",
+          "amount": "۳,۴۰۰,۰۰۰"
+        },
+        {
+          "customer": "زهرا سلطانی",
+          "date": "۲۱ مهر ۱۴۰۲ - ۱۱:۲۰",
+          "amount": "۲,۱۰۰,۰۰۰"
+        },
+        {
+          "customer": "بهرام رادان",
+          "date": "۲۰ مهر ۱۴۰۲ - ۰۹:۰۰",
+          "amount": "۵,۶۰۰,۰۰۰"
+        },
+        {
+          "customer": "نیکی کریمی",
+          "date": "۱۹ مهر ۱۴۰۲ - ۱۸:۳۰",
+          "amount": "۷۸۰,۰۰۰"
+        }
+      ]
     }
   },
   "shop": {
     "hero": {
-      "badge": "New Season 2024",
+      "badge": "فصل جدید ۲۰۲۴",
       "title": "ظرافت در <br/>سادگی نهفته است.",
       "cta": "مشاهده کالکشن جدید"
     },
@@ -158,7 +252,7 @@
       "art": "کالاهای هنری"
     },
     "flash_sale": {
-      "badge": "Flash Sale",
+      "badge": "فروش فوری",
       "title": "فروش ویژه لحظه‌ای",
       "desc": "فرصت محدود برای خرید قطعات برگزیده با تخفیف استثنایی.",
       "hour": "ساعت",
@@ -167,13 +261,13 @@
       "watch": "ساعت مینیمال سری اکسو",
       "shoes": "کفش ورزشی مدل ورتکس",
       "headphones": "هدفون بیسیم استودیو پرو",
-      "new_stock": "New in stock - Limited Edition",
+      "new_stock": "موجودی جدید - نسخه محدود",
       "currency": "تومان",
       "add_to_cart": "افزودن به سبد"
     },
     "new_arrivals": {
       "title": "تازه‌ترین‌های آرشیو",
-      "desc": "The latest curations delivered to your doorstep.",
+      "desc": "جدیدترین انتخاب‌ها، مستقیم تا در خانه شما.",
       "see_all": "مشاهده همه",
       "special_offer": "پیشنهاد ویژه",
       "spring_collection": "کالکشن بهاره ۲۰۲۴",
@@ -187,20 +281,20 @@
     },
     "footer": {
       "desc": "بایگانی برای کسانی که به دنبال فراتر از معمول هستند. مجموعه‌ای برگزیده از بهترین طراحی‌های مدرن.",
-      "nav_title": "Navigation",
-      "journal": "Journal",
-      "sustainability": "Sustainability",
-      "shipping": "Shipping",
-      "contact": "Contact",
-      "support_title": "Support",
+      "nav_title": "ناوبری",
+      "journal": "ژورنال",
+      "sustainability": "پایداری",
+      "shipping": "ارسال",
+      "contact": "تماس",
+      "support_title": "پشتیبانی",
       "faq": "سوالات متداول",
       "terms": "قوانین و مقررات",
       "privacy": "حریم خصوصی",
-      "newsletter_title": "Newsletter",
-      "newsletter_desc": "Subscribe for new collections and exclusive updates.",
+      "newsletter_title": "خبرنامه",
+      "newsletter_desc": "برای اطلاع از کالکشن‌های جدید و اخبار اختصاصی عضو شوید.",
       "email_placeholder": "ایمیل شما",
       "confirm": "تایید",
-      "copyright": "© 2024 THE PERSO-MODERNIST ARCHIVE. CURATED LUXURY."
+      "copyright": "© ۲۰۲۴ آرشیو پرسو مدرنیست. مجموعه‌ای برگزیده از طراحی لوکس."
     }
   },
   "profile_page": {

@@ -6,12 +6,14 @@ import { useTranslation } from "react-i18next";
 import { Diamond, Flower2, Hourglass } from "lucide-react";
 import { Button } from "@/src/share-components/atoms/button";
 import { Card, CardContent } from "@/src/share-components/atoms/card";
+import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
 
 export default function AboutPage() {
   const { t } = useTranslation();
 
   return (
     <main className="flex-grow flex flex-col pt-24 pb-32 px-6 max-w-screen-xl mx-auto w-full gap-16 md:gap-24">
+      <AnimatedSections className="space-y-16 md:space-y-24">
       <section className="flex flex-col md:flex-row gap-12 items-center">
         <div className="w-full md:w-1/2 space-y-6 md:pl-12">
           <h1 className="text-4xl md:text-6xl font-black text-primary leading-tight font-headline">
@@ -32,7 +34,7 @@ export default function AboutPage() {
           <Card className="border-none overflow-hidden rounded-[2.5rem] shadow-2xl relative">
             <Image 
               src="https://picsum.photos/seed/about/800/1000" 
-              alt="Gallery" 
+              alt={t('about_page.gallery_alt')} 
               width={800} 
               height={1000} 
               className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-1000" 
@@ -64,6 +66,7 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+      </AnimatedSections>
     </main>
   );
 }

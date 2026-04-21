@@ -6,19 +6,19 @@ import { QuickActions } from "@/src/modules/profile/components/QuickActions";
 import { RecentOrders } from "@/src/modules/profile/components/RecentOrders";
 import { ProfileNav } from "@/src/modules/profile/components/ProfileNav";
 import { BottomNav } from "@/src/modules/shop/components/bottom-nav";
-import { motion } from 'framer-motion';
+import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
 
 export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-surface flex flex-col">
       <ProfileHeader />
       
-      <main className="flex-1 pt-20 space-y-8 max-w-7xl mx-auto w-full">
+      <AnimatedSections className="flex-1 pt-20 space-y-8 max-w-7xl mx-auto w-full">
         <UserBrief />
         <QuickActions />
         <RecentOrders />
         <ProfileNav />
-      </main>
+      </AnimatedSections>
 
       <BottomNav />
     </div>

@@ -8,12 +8,14 @@ import { X, Minus, Plus, ArrowRight } from "lucide-react";
 import { Button } from "@/src/share-components/atoms/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/src/share-components/atoms/card";
 import { Separator } from "@/src/share-components/atoms/separator";
+import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
 
 export default function CartPage() {
   const { t } = useTranslation();
 
   return (
-    <main className="flex-grow max-w-screen-xl mx-auto w-full px-4 md:px-6 pt-24 pb-32 flex flex-col lg:flex-row gap-8 items-start bg-background">
+    <main className="flex-grow max-w-screen-xl mx-auto w-full px-4 md:px-6 pt-24 pb-32 bg-background">
+      <AnimatedSections className="flex flex-col lg:flex-row gap-8 items-start">
       <div className="w-full lg:w-2/3 flex flex-col gap-6">
         <h2 className="text-3xl font-black text-foreground mb-4 uppercase tracking-tighter font-headline">{t('cart.title')}</h2>
         {[1, 2].map((item) => (
@@ -87,6 +89,7 @@ export default function CartPage() {
           </CardContent>
         </Card>
       </div>
+      </AnimatedSections>
     </main>
   );
 }

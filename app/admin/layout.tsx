@@ -37,7 +37,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="flex items-center gap-4">
           <div className="relative group">
             <Image 
-              alt="Admin Profile" 
+              alt={t('admin.nav.profile_image_alt')} 
               className="size-14 rounded-2xl object-cover ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all duration-500" 
               src="https://picsum.photos/seed/admin/200/200" 
               width={56} 
@@ -135,7 +135,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="flex items-center gap-3">
             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-muted/30 rounded-xl border border-border/50">
               <span className="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Server Live</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t('admin.nav.server_live')}</span>
             </div>
             <ThemeToggle />
             <LangToggle />
