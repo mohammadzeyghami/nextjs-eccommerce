@@ -11,8 +11,24 @@ import { Badge } from "@/src/share-components/atoms/badge";
 import { AnimatedSections, FadeInRandom } from "@/src/share-components/molecules/animated-sections";
 import { cn } from "@/lib/utils";
 
+import { useParams } from "next/navigation";
+import { useCartStore } from "@/store/useCartStore";
+
 export default function ProductDetailPage() {
   const { t } = useTranslation();
+  const params = useParams();
+  const addItem = useCartStore((state) => state.addItem);
+
+  const handleAddToCart = () => {
+    // In a real app, we would fetch product by id. 
+    // Here we'll use a mock based on the ID or current page content.
+    addItem({
+      id: params.id as string || 'default-id',
+      title: t('product.title'),
+      price: '۳,۴۵۰,۰۰۰',
+      image: "https://picsum.photos/seed/vase/800/1000",
+    });
+  };
 
   return (
     <>
@@ -33,6 +49,7 @@ export default function ProductDetailPage() {
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-105" 
                 referrerPolicy="no-referrer" 
+                priority
               />
             </Card>
             <div className="grid grid-cols-4 gap-4">
@@ -91,7 +108,11 @@ export default function ProductDetailPage() {
             <span className="text-2xl font-black text-primary">۳,۴۵۰,۰۰۰ {t('shop.flash_sale.currency')}</span>
           </div>
           <div className="flex items-center gap-4 flex-1 md:flex-none justify-end">
-            <Button size="lg" className="w-full md:w-auto rounded-2xl font-black text-lg h-16 px-12 group transition-all shadow-xl shadow-primary/20">
+            <Button 
+              onClick={handleAddToCart}
+              size="lg" 
+              className="w-full md:w-auto rounded-2xl font-black text-lg h-16 px-12 group transition-all shadow-xl shadow-primary/20 active:scale-95"
+            >
               <ShoppingBag className="size-6 mr-3 group-hover:scale-110 transition-transform" />
               {t('shop.flash_sale.add_to_cart')}
             </Button>

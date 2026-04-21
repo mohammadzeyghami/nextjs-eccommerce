@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from "react-i18next";
 import { LayoutDashboard, Package, ShoppingCart, Users, Settings, LogOut, Menu, Bell } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/src/share-components/molecules/sheet";
@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const { t } = useTranslation();
 
   const closeDrawer = () => setIsDrawerOpen(false);
@@ -92,7 +93,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </nav>
 
       <div className="p-6 border-t border-border">
-        <Button variant="ghost" className="w-full justify-start gap-4 h-14 rounded-2xl text-muted-foreground hover:text-destructive hover:bg-destructive/5 transition-all duration-300 group">
+        <Button 
+          variant="ghost" 
+          onClick={() => router.push("/")}
+          className="w-full justify-start gap-4 h-14 rounded-2xl text-muted-foreground hover:text-destructive hover:bg-destructive/5 transition-all duration-300 group"
+        >
           <LogOut className="size-6 transition-transform group-hover:rotate-12" />
           <span className="font-headline font-bold">{t("admin.nav.logout")}</span>
         </Button>

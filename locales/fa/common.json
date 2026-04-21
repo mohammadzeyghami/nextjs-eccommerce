@@ -235,6 +235,27 @@
           "amount": "۷۸۰,۰۰۰"
         }
       ]
+    },
+    "users_management": {
+      "title": "مدیریت کاربران",
+      "desc": "فهرست تمامی کاربران، همکاران و مشتریان سیستم.",
+      "search_placeholder": "جستجو با نام، ایمیل یا نقش...",
+      "name_email": "نام کامل / ایمیل",
+      "role": "نقش",
+      "actions": "عملیات",
+      "manage": "مدیریت",
+      "load_more": "بارگذاری بیشتر",
+      "roles": {
+        "admin": "مدیر سیستم",
+        "product_manager": "مدیر محصول",
+        "customer": "مشتری"
+      },
+      "mock_users": [
+        { "name": "سارا احمدی", "email": "sara.ahmadi@example.com", "role": "admin" },
+        { "name": "علی رضایی", "email": "ali.rezaei@example.com", "role": "customer" },
+        { "name": "مریم کریمی", "email": "m.karimi88@example.com", "role": "customer" },
+        { "name": "زهرا توکلی", "email": "ztavakoli@example.com", "role": "product_manager" }
+      ]
     }
   },
   "shop": {

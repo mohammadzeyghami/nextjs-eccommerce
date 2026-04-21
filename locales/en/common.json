@@ -235,6 +235,27 @@
           "amount": "780,000"
         }
       ]
+    },
+    "users_management": {
+      "title": "Users Management",
+      "desc": "List of all users, staff, and customers.",
+      "search_placeholder": "Search by name, email or role...",
+      "name_email": "Full Name / Email",
+      "role": "Role",
+      "actions": "Actions",
+      "manage": "Manage",
+      "load_more": "Load More",
+      "roles": {
+        "admin": "System Admin",
+        "product_manager": "Product Manager",
+        "customer": "Customer"
+      },
+      "mock_users": [
+        { "name": "Sara Ahmadi", "email": "sara.ahmadi@example.com", "role": "admin" },
+        { "name": "Ali Rezaei", "email": "ali.rezaei@example.com", "role": "customer" },
+        { "name": "Maryam Karimi", "email": "m.karimi88@example.com", "role": "customer" },
+        { "name": "Zahra Tavakoli", "email": "ztavakoli@example.com", "role": "product_manager" }
+      ]
     }
   },
   "shop": {
