@@ -10,8 +10,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const vazirmatn = Vazirmatn({ subsets: ['arabic'], variable: '--font-vazirmatn' });
 
 export const metadata: Metadata = {
-  title: 'The Archive',
-  description: 'The Archive - Curated Minimalist E-Commerce',
+  title: 'RastaarShop',
+  description: 'RastaarShop - Curated Minimalist E-Commerce',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

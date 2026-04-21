@@ -1,58 +1,40 @@
-# Project Stack Rules
+# 🏗️ Anti-Gravity Project Skills & Rules
 
-- nextjs + TypeScript
-- TanStack Query (React Query) for data fetching/caching
-- Axios + Orval SDK (packages/sdk-fetch/, packages/sdk-query/)
-- Zustand for global state (src/store/)
-- React Hook Form + Zod for forms and validation
-- TailwindCSS for styling (Design Tokens only)
-- i18n with src/locales/ (Persian fa + English en)
-- RTL support (Persian UI default)
+## 🧠 Core Skill 1: Architectural Awareness (Stack)
+- **Core:** Next.js (App Router) + TypeScript.
+- **State & Data:** Zustand for global state, TanStack Query for server state via Axios/Orval SDK.
+- **Forms:** React Hook Form + Yup (The absolute source of truth for validation).
+- **Styling & Motion:** TailwindCSS (Strict Design Tokens) + Framer Motion.
+- **i18n:** Full Multi-language & Multi-theme (RTL/LTR) capabilities.
 
----
-
-## Component Architecture (MANDATORY Resolution Order)
-Before creating any component, follow this exact order:
-
+## 🔍 Core Skill 2: Component Resolution Logic (MANDATORY)
 1. **STEP 1 — Search internal shared components** in `src/share-components/`
-   - If match exists → USE IT.
-   - If not found → Print: `⚠️ SHARED COMPONENT NOT FOUND. Proceeding to check Shadcn UI...`
-2. **STEP 2 — Install from Shadcn UI** (https://ui.shadcn.com/docs/components)
-   - If found → `npx shadcn@latest add <component-name>`
-   - Place in appropriate `src/share-components/` layer.
-   - If not found → Print: `⚠️ SHADCN COMPONENT NOT FOUND. Proceeding to create new shared component...`
+   - **Atoms:** badge, buttons, card, dropdown, iconButton, logo, menuItemBox, modal, select, spinner, tag, typography.
+   - **Molecules:** inputs, dialog, drawer, search, check-box, switch, textarea, upload, popover, tagList, collapse, label, ImagePreview, videoPreview, bottomControls, dropdown-menu.
+   - **Organisms:** form-shell.
+2. **STEP 2 — Install from Shadcn UI**
+   - `npx shadcn@latest add <component-name>`
 3. **STEP 3 — Create new shared component** (Last resort)
-   - Generic, no domain logic, place in `src/share-components/`.
 
-**Layers in `src/share-components/`:**
-- **Atoms:** badge, buttons, card, dropdown, iconButton, logo, menuItemBox, modal, select, spinner, tag, typography.
-- **Molecules:** inputs, dialog, drawer, search, check-box, switch, textarea, upload, popover, tagList, collapse, label, ImagePreview, videoPreview, bottomControls, dropdown-menu.
-- **Organisms:** form-shell (generic wrappers).
+## 🌍 Core Skill 3: Internationalization & Theme Fluidity
+- **Zero-Static Text:** All text must use `t('namespace.key')`.
+- **RTL/LTR:** Native support for Persian (`fa`) and English (`en`).
+- **Design Tokens:** Use semantic classes (e.g., `bg-background`).
 
-**Module Components (`src/modules/<module>/components/`):**
-- Contains business/domain logic. Can import from shared, but shared NEVER imports from modules.
+## ✨ Core Skill 4: Motion Synthesis (Anti-Gravity)
+- All sections must use **Framer Motion** with randomized entry:
+  ```tsx
+  initial={{ opacity: 0, y: 15 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: Math.random() * 0.5, duration: 0.6 }}
+  ```
 
----
+## 📦 Core Skill 5: Modular Boundary Enforcement
+- Logic belongs in `src/modules/<module-name>/`.
+- Modules → Shared Components (✅). Shared → Modules (❌).
 
-## Data Layer — TanStack Query + SDK
-- **Flow:** API (SDK) → Module Service → TanStack Query Hook → UI Component.
-- **Keys:** Use key factories in `src/lib/react-query/key-factory.ts` or module `keys.ts`. No inline keys.
-- **Invalidation:** 
-  - Create/Delete: Invalidate `lists()`.
-  - Update: Invalidate `lists()` + `detail(id)`.
-- **Optimistic Updates:** Must include rollback logic using `onMutate` and `onError`.
-
----
-
-## Forms — React Hook Form + Zod
-- **Schema Location:** `src/modules/<Module>/interfaces/<module>.schema.ts`
-- **Pattern:**
-```ts
-import { z } from "zod";
-export const UserFormSchema = z.object({
-  name: z.string().trim().min(2).max(50),
-  email: z.string().trim().email(),
-  age: z.coerce.number().min(1).optional(),
-});
-export type UserFormValues = z.infer<typeof UserFormSchema>;
-```
+## 🤖 AI Operational Directive
+1. **Resolution:** Check Step 1/2.
+2. **Translation:** Zero hardcoded strings.
+3. **Motion:** Randomized Framer Motion wrappers.
+4. **Justification:** Explain new component creation.

@@ -16,7 +16,7 @@
   "dark": "Dark",
   "persian": "Persian",
   "english": "English",
-  "app_name": "THE ARCHIVE",
+  "app_name": "RastaarShop",
   "dir": "ltr",
   "login_title": "Sign in to your account",
   "forgot_password": "Forgot Password?",
@@ -32,7 +32,7 @@
   "about_page": {
     "title_top": "The Art of Curation",
     "title_bottom": "In an Age of Abundance",
-    "desc": "We believe that in today's noisy world, silence and precise selection are the most valuable assets. The Archive is not just a shop, but a gallery of objects with identity.",
+    "desc": "We believe that in today's noisy world, silence and precise selection are the most valuable assets. RastaarShop is not just a shop, but a gallery of objects with identity.",
     "mission": "Mission Statement",
     "values_title": "Core Values",
     "value1_title": "Uncompromising Quality",
@@ -69,7 +69,7 @@
   },
   "shop_products": {
     "filters": "Filters",
-    "search_placeholder": "Search in the Archive...",
+    "search_placeholder": "Search in RastaarShop...",
     "clear_all": "Clear All",
     "item_title": "Minimalist Leather Bag",
     "product_image_alt": "Product image"
@@ -156,7 +156,7 @@
       "title": "Product Management",
       "desc": "Manage gallery inventory, pricing, and categories.",
       "add_new": "Add New Product",
-      "search_placeholder": "Search in product archive...",
+      "search_placeholder": "Search in RastaarShop products...",
       "filters": "Filters",
       "inventory": "Inventory",
       "unit": "Units",
@@ -266,7 +266,7 @@
       "add_to_cart": "Add to Cart"
     },
     "new_arrivals": {
-      "title": "New Archive Arrivals",
+      "title": "New RastaarShop Arrivals",
       "desc": "The latest curations delivered to your doorstep.",
       "see_all": "View All",
       "special_offer": "Special Offer",
@@ -280,7 +280,7 @@
       "nordic_chair": "Nordic Design Chair"
     },
     "footer": {
-      "desc": "An archive for those who seek beyond the ordinary. A curated collection of elite modern designs.",
+      "desc": "A shop for those who seek beyond the ordinary. A curated collection of elite modern designs.",
       "nav_title": "Navigation",
       "journal": "Journal",
       "sustainability": "Sustainability",
@@ -294,7 +294,7 @@
       "newsletter_desc": "Subscribe for new collections and exclusive updates.",
       "email_placeholder": "Your Email",
       "confirm": "Confirm",
-      "copyright": "© 2024 THE PERSO-MODERNIST ARCHIVE. CURATED LUXURY."
+      "copyright": "© 2024 RASTAARSHOP PERSO-MODERNIST. CURATED LUXURY."
     }
   },
   "profile_page": {
