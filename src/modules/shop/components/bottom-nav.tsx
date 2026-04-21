@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
-import { Home, Grid, ShoppingBag, User } from "lucide-react"
+import { Home, Grid, ShoppingBag, User, BookOpen } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
@@ -13,6 +13,7 @@ export function BottomNav() {
   const navItems = [
     { href: "/", label: t("home"), icon: Home },
     { href: "/products", label: t("categories"), icon: Grid },
+    { href: "/news", label: t("journal"), icon: BookOpen },
     { href: "/cart", label: t("bag"), icon: ShoppingBag },
     { href: "/profile", label: t("profile"), icon: User },
   ]

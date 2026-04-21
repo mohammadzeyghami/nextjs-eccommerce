@@ -9,6 +9,7 @@
   "profile": "پروفایل",
   "about": "درباره ما",
   "search": "جستجو",
+  "journal": "ژورنال",
   "settings": "تنظیمات",
   "change_language": "تغییر زبان",
   "change_theme": "تغییر پوسته",
@@ -251,10 +252,26 @@
         "customer": "مشتری"
       },
       "mock_users": [
-        { "name": "سارا احمدی", "email": "sara.ahmadi@example.com", "role": "admin" },
-        { "name": "علی رضایی", "email": "ali.rezaei@example.com", "role": "customer" },
-        { "name": "مریم کریمی", "email": "m.karimi88@example.com", "role": "customer" },
-        { "name": "زهرا توکلی", "email": "ztavakoli@example.com", "role": "product_manager" }
+        {
+          "name": "سارا احمدی",
+          "email": "sara.ahmadi@example.com",
+          "role": "admin"
+        },
+        {
+          "name": "علی رضایی",
+          "email": "ali.rezaei@example.com",
+          "role": "customer"
+        },
+        {
+          "name": "مریم کریمی",
+          "email": "m.karimi88@example.com",
+          "role": "customer"
+        },
+        {
+          "name": "زهرا توکلی",
+          "email": "ztavakoli@example.com",
+          "role": "product_manager"
+        }
       ]
     }
   },
@@ -316,6 +333,41 @@
       "email_placeholder": "ایمیل شما",
       "confirm": "تایید",
       "copyright": "© ۲۰۲۴ رستارشاپ پرسو مدرنیست. مجموعه‌ای برگزیده از طراحی لوکس."
+    },
+    "journal_page": {
+      "title": "ژورنال",
+      "the_journal": "ژورنال آرشیو",
+      "curator": "کیوریتور دیجیتال",
+      "desc": "کاوشی در تلاقی هنر، طراحی و مدرنیسم. مجموعه‌ای برگزیده از داستان‌هایی که هویت بصری عصر ما را شکل می‌دهند.",
+      "featured": "ویژه",
+      "read_article": "مطالعه مقاله کامل",
+      "categories": {
+        "all": "همه دسته‌ها",
+        "editorial": "سرمقاله",
+        "curation": "کیوریتوری",
+        "archive": "آرشیو",
+        "journal": "ژورنال"
+      },
+      "read_time": "زمان مطالعه: {{time}}",
+      "load_more": "مشاهده مقالات قدیمی‌تر",
+      "newsletter": {
+        "title": "عضویت در خبرنامه آرشیو",
+        "desc": "هر هفته برگزیده‌ای از بهترین مطالب ژورنال را در ایمیل خود دریافت کنید.",
+        "placeholder": "آدرس ایمیل شما",
+        "submit": "ثبت‌نام"
+      },
+      "details": {
+        "author": "نویسنده: {{name}}",
+        "entry": "یادداشت {{id}}",
+        "in_this_article": "در این مقاله می‌خوانید",
+        "share_title": "اشتراک‌گذاری این داستان",
+        "copy_link": "کپی لینک مقاله",
+        "send_email": "ارسال به دوستان",
+        "recommended": "مطالعه پیشنهادی",
+        "related": "مقالات مرتبط",
+        "back_to_journal": "بازگشت به ژورنال",
+        "next_article": "مقاله بعدی"
+      }
     }
   },
   "profile_page": {

@@ -251,10 +251,26 @@
         "customer": "Customer"
       },
       "mock_users": [
-        { "name": "Sara Ahmadi", "email": "sara.ahmadi@example.com", "role": "admin" },
-        { "name": "Ali Rezaei", "email": "ali.rezaei@example.com", "role": "customer" },
-        { "name": "Maryam Karimi", "email": "m.karimi88@example.com", "role": "customer" },
-        { "name": "Zahra Tavakoli", "email": "ztavakoli@example.com", "role": "product_manager" }
+        {
+          "name": "Sara Ahmadi",
+          "email": "sara.ahmadi@example.com",
+          "role": "admin"
+        },
+        {
+          "name": "Ali Rezaei",
+          "email": "ali.rezaei@example.com",
+          "role": "customer"
+        },
+        {
+          "name": "Maryam Karimi",
+          "email": "m.karimi88@example.com",
+          "role": "customer"
+        },
+        {
+          "name": "Zahra Tavakoli",
+          "email": "ztavakoli@example.com",
+          "role": "product_manager"
+        }
       ]
     }
   },
@@ -316,6 +332,41 @@
       "email_placeholder": "Your Email",
       "confirm": "Confirm",
       "copyright": "© 2024 RASTAARSHOP PERSO-MODERNIST. CURATED LUXURY."
+    },
+    "journal_page": {
+      "title": "Journal",
+      "the_journal": "THE JOURNAL",
+      "curator": "The Digital Curator",
+      "desc": "Exploring the intersection of art, design, and modernism. A curated collection of stories shaping the visual identity of our era.",
+      "featured": "Featured",
+      "read_article": "Read Full Article",
+      "categories": {
+        "all": "All Categories",
+        "editorial": "Editorial",
+        "curation": "Curation",
+        "archive": "Archive",
+        "journal": "Journal"
+      },
+      "read_time": "Read Time: {{time}}",
+      "load_more": "Load Older Articles",
+      "newsletter": {
+        "title": "Subscribe to Archive Newsletter",
+        "desc": "Receive a weekly selection of the best journal content in your inbox.",
+        "placeholder": "Your Email Address",
+        "submit": "Subscribe"
+      },
+      "details": {
+        "author": "Author: {{name}}",
+        "entry": "Entry {{id}}",
+        "in_this_article": "In this article you'll read",
+        "share_title": "Share this story",
+        "copy_link": "Copy Article Link",
+        "send_email": "Send to Friends",
+        "recommended": "Recommended Read",
+        "related": "Related Articles",
+        "back_to_journal": "Back to Journal",
+        "next_article": "Next Article"
+      }
     }
   },
   "profile_page": {
