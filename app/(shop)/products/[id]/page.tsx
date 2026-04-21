@@ -48,8 +48,7 @@ export default function ProductDetailPage() {
       title: product.title,
       price: product.price,
       image: product.image,
-      quantity: quantity
-    });
+    }, quantity);
   };
 
   const relatedProducts = [

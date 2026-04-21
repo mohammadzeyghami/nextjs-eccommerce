@@ -11,7 +11,8 @@ import { useCartStore } from "@/store/useCartStore";
 
 export default function CartPage() {
   const { t } = useTranslation();
-  const { items, removeItem, updateQuantity, subtotal } = useCartStore();
+  const { items, removeItem, updateQuantity, totalPrice } = useCartStore();
+  const subtotal = totalPrice();
 
   const suggestedItems = [
     { title: 'گلدان مینیمال آرک', price: '۱,۴۵۰,۰۰۰', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDob4z2JpupZzNugAtTjt3dZTMgPfafLyAWwhmyjf9s7eqz05KADu7LL6UN7kTbEi9zvFKpeGfRi5OBZH5_Ml29Wpf9YdHsvyWhCTReSzIoB70uurNqa2-wp87I0ELALR-iJkyr1rJFGdDBkJb6udO69hBhiaEA44YZuFaYsbtF-YuSxPmwie8FTsz8UpJU-N4K3LrGsYqTsJbU_RTTPxH1GPglGZLYHB3TGm01vZo5ZFzxDszkOTlTRGqXyt1yfa_a5ZSsrkuoIB8' },
