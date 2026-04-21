@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from "react"
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, Monitor } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
 import { Button } from "@/src/share-components/atoms/button"
@@ -41,7 +41,7 @@ export function ThemeToggle() {
           </DropdownMenuLabel>
         </DropdownMenuGroup>
         <DropdownMenuSeparator className="opacity-50" />
-        <DropdownMenuRadioGroup value={theme} onValueChange={(v) => setTheme(v as 'light' | 'dark')}>
+        <DropdownMenuRadioGroup value={theme} onValueChange={(v) => setTheme(v as 'light' | 'dark' | 'system')}>
           <DropdownMenuRadioItem value="light" className="rounded-xl px-3 py-2.5 my-1 cursor-pointer transition-all focus:bg-primary/10">
             <div className="flex items-center gap-3">
               <Sun className="size-4 text-muted-foreground group-focus/dropdown-menu-item:text-primary" />
@@ -52,6 +52,12 @@ export function ThemeToggle() {
             <div className="flex items-center gap-3">
               <Moon className="size-4 text-muted-foreground group-focus/dropdown-menu-item:text-primary" />
               <span className="font-medium">{t("dark")}</span>
+            </div>
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="system" className="rounded-xl px-3 py-2.5 my-1 cursor-pointer transition-all focus:bg-primary/10">
+            <div className="flex items-center gap-3">
+              <Monitor className="size-4 text-muted-foreground group-focus/dropdown-menu-item:text-primary" />
+              <span className="font-medium">{t("system")}</span>
             </div>
           </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>

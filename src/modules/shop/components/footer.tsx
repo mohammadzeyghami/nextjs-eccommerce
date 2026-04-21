@@ -1,11 +1,19 @@
 "use client";
 
+import * as React from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { Globe, Share2 } from "lucide-react";
 
 export function Footer() {
   const { t } = useTranslation();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <footer className="bg-surface-container-low w-full mt-auto border-t border-primary/5">
@@ -23,7 +31,7 @@ export function Footer() {
           <Link href="/privacy" className="hover:text-primary transition-colors">{t('shop.footer.privacy')}</Link>
           <Link href="/terms" className="hover:text-primary transition-colors">{t('shop.footer.terms')}</Link>
           <Link href="/shipping" className="hover:text-primary transition-colors">{t('shop.footer.shipping')}</Link>
-          <Link href="/contact" className="hover:text-primary transition-colors">{t('shop.footer.contact')}</Link>
+          <Link href="/contact-us" className="hover:text-primary transition-colors">{t('shop.footer.contact')}</Link>
           <Link href="/sustainability" className="hover:text-primary transition-colors">{t('shop.footer.sustainability')}</Link>
         </div>
 

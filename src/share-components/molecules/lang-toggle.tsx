@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from "react"
-import { Globe } from "lucide-react"
+import { Globe, Settings2 } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
 import { Button } from "@/src/share-components/atoms/button"
@@ -40,7 +40,7 @@ export function LangToggle() {
           </DropdownMenuLabel>
         </DropdownMenuGroup>
         <DropdownMenuSeparator className="opacity-50" />
-        <DropdownMenuRadioGroup value={lang} onValueChange={(v) => setLang(v as 'fa' | 'en')}>
+        <DropdownMenuRadioGroup value={lang} onValueChange={(v) => setLang(v as 'fa' | 'en' | 'system')}>
           <DropdownMenuRadioItem value="fa" className="rounded-xl px-3 py-2.5 my-1 cursor-pointer transition-all focus:bg-primary/10">
             <div className="flex items-center gap-3">
               <span className="text-lg">🇮🇷</span>
@@ -51,6 +51,12 @@ export function LangToggle() {
             <div className="flex items-center gap-3">
               <span className="text-lg">🇺🇸</span>
               <span className="font-medium">{t("english")}</span>
+            </div>
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="system" className="rounded-xl px-3 py-2.5 my-1 cursor-pointer transition-all focus:bg-primary/10">
+            <div className="flex items-center gap-3">
+              <Settings2 className="size-4 text-muted-foreground group-focus/dropdown-menu-item:text-primary" />
+              <span className="font-medium">{t("system")}</span>
             </div>
           </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>

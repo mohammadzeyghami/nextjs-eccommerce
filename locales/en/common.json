@@ -16,6 +16,9 @@
   "dark": "Dark",
   "persian": "Persian",
   "english": "English",
+  "system": "System Default",
+  "contact": "Contact Us",
+  "dashboard": "Dashboard",
   "app_name": "RastaarShop",
   "dir": "ltr",
   "login_title": "Sign in to your account",
@@ -385,5 +388,25 @@
     "my_addresses": "My Addresses",
     "logout": "Logout",
     "user_name": "Amirreza Rezaei"
+  },
+  "contact_page": {
+    "hero_title": "Get in touch",
+    "hero_desc": "Our team is here to listen to your feedback and answer your questions. Send a message now.",
+    "phone": "Phone Number",
+    "email": "Email",
+    "social": "Social Media",
+    "form_title": "Send a Message",
+    "full_name": "Full Name",
+    "full_name_placeholder": "Enter your name",
+    "email_placeholder": "email@example.com",
+    "subject": "Subject",
+    "subject_placeholder": "Message subject",
+    "message": "Message",
+    "message_placeholder": "How can we help you?",
+    "submit": "Send Smart Message",
+    "headquarters": "Headquarters",
+    "address": "402 Niloufar Tower, Vali-e-Asr St., Jordan, Tehran",
+    "show_map": "Show on Map",
+    "office_title": "Modern Archive Headquarters"
   }
 }

@@ -17,6 +17,9 @@
   "dark": "تاریک",
   "persian": "فارسی",
   "english": "انگلیسی",
+  "system": "پیش‌فرض سیستم",
+  "contact": "تماس با ما",
+  "dashboard": "پیشخوان",
   "app_name": "رستارشاپ",
   "dir": "rtl",
   "login_title": "وارد حساب کاربری خود شوید",
@@ -386,5 +389,25 @@
     "my_addresses": "آدرس‌های من",
     "logout": "خروج از حساب",
     "user_name": "امیررضا رضایی"
+  },
+  "contact_page": {
+    "hero_title": "در تماس باشیم",
+    "hero_desc": "تیم ما برای شنیدن نظرات و پاسخ به سوالات شما در کنار شماست. همین حالا پیام بفرستید.",
+    "phone": "شماره تماس",
+    "email": "پست الکترونیک",
+    "social": "شبکه‌های اجتماعی",
+    "form_title": "ارسال پیام",
+    "full_name": "نام و نام خانوادگی",
+    "full_name_placeholder": "نام خود را وارد کنید",
+    "email_placeholder": "email@example.com",
+    "subject": "موضوع پیام",
+    "subject_placeholder": "موضوع درخواست شما",
+    "message": "متن پیام",
+    "message_placeholder": "چطور می‌توانیم به شما کمک کنیم؟",
+    "submit": "ارسال پیام هوشمند",
+    "headquarters": "دفتر مرکزی",
+    "address": "تهران، محله جردن، خیابان ولیعصر، برج نیلوفر، واحد ۴۰۲",
+    "show_map": "نمایش روی نقشه",
+    "office_title": "دفتر مرکزی آرشیو مدرن"
   }
 }

@@ -1,24 +1,36 @@
 "use client"
 
+import * as React from "react"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
-import { Search, User, ShoppingBag, LayoutDashboard } from "lucide-react"
+import { User, ShoppingBag } from "lucide-react"
 import { Button } from "@/src/share-components/atoms/button"
 import { MobileMenu } from "./mobile-menu"
 import { ThemeToggle } from "@/src/share-components/molecules/theme-toggle"
 import { LangToggle } from "@/src/share-components/molecules/lang-toggle"
 import { useCartStore } from "@/store/useCartStore"
 import { Badge } from "@/src/share-components/atoms/badge"
+import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
 
 export function Header() {
   const { t } = useTranslation()
   const totalItems = useCartStore((state) => state.totalItems())
+  const pathname = usePathname()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
 
   const navItems = [
-    { href: "/", label: t("home") },
     { href: "/products", label: t("categories") },
     { href: "/news", label: t("journal") },
     { href: "/about", label: t("about") },
+    { href: "/contact-us", label: t("contact") },
+    { href: "/dashboard", label: t("dashboard") },
   ]
 
   return (
@@ -31,27 +43,32 @@ export function Header() {
             {t('app_name')}
           </Link>
           <nav className="hidden md:flex items-center gap-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-bold text-foreground/60 hover:text-primary transition-colors tracking-wide"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "text-sm font-bold transition-colors tracking-wide relative py-1",
+                    isActive 
+                      ? "text-primary" 
+                      : "text-foreground/60 hover:text-primary"
+                  )}
+                >
+                  {item.label}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full animate-in fade-in zoom-in duration-300" />
+                  )}
+                </Link>
+              )
+            })}
           </nav>
         </div>
 
         <div className="flex items-center gap-1">
           <ThemeToggle />
           <LangToggle />
-          <Link href="/dashboard" className="hidden md:flex">
-            <Button variant="ghost" size="icon">
-              <LayoutDashboard className="size-5 text-primary" />
-              <span className="sr-only">{t("admin")}</span>
-            </Button>
-          </Link>
           <Link href="/profile" className="hidden md:flex">
             <Button variant="ghost" size="icon">
               <User className="size-5 text-primary" />
@@ -69,10 +86,6 @@ export function Header() {
               <span className="sr-only">{t("bag")}</span>
             </Button>
           </Link>
-          <Button variant="ghost" size="icon">
-            <Search className="size-5 text-primary" />
-            <span className="sr-only">{t("search")}</span>
-          </Button>
         </div>
       </div>
     </header>

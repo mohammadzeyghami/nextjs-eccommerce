@@ -10,13 +10,39 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   const { theme, lang } = useAppStore();
 
   useEffect(() => {
-    i18n.changeLanguage(lang);
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+    const applyLang = (l: 'fa' | 'en' | 'system') => {
+      let targetLang: 'fa' | 'en' = 'fa';
+      if (l === 'system') {
+        const browserLang = navigator.language.split('-')[0];
+        targetLang = browserLang === 'en' ? 'en' : 'fa';
+      } else {
+        targetLang = l;
+      }
+      i18n.changeLanguage(targetLang);
+      document.documentElement.lang = targetLang;
+      document.documentElement.dir = targetLang === 'fa' ? 'rtl' : 'ltr';
+    };
+
+    applyLang(lang);
+    
+    const applyTheme = (t: 'light' | 'dark' | 'system') => {
+      const root = document.documentElement;
+      if (t === 'system') {
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        root.classList.toggle('dark', systemTheme === 'dark');
+      } else {
+        root.classList.toggle('dark', t === 'dark');
+      }
+    };
+
+    applyTheme(theme);
+
+    // If theme is system, listen for changes
+    if (theme === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleChange = () => applyTheme('system');
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
     }
   }, [theme, lang]);
 
