@@ -78,10 +78,16 @@ You are forbidden from generating raw HTML (`div`, `button`, `input`). You must 
     * `ControllerSelect` (for options)
 * **Rationale:** This ensures unified validation (via Zod), consistent aesthetics (via Shadcn/Tailwind), and zero prop-drilling (via useFormContext).
 
+## 🎨 Core Skill 11: Theme Integrity & Zero-Invasive Styling
+* **Preserve Global Identity:** You are strictly forbidden from overriding global CSS variables or theme tokens with hardcoded values (e.g., custom slate-900/50 backgrounds) unless explicitly requested.
+* **Semantic Anchor Rule:** Always anchor component styles to the project's semantic tokens (`bg-card`, `bg-background`, `bg-muted`). 
+* **Zero Breakage Policy:** Your "premium" improvements must amplify the existing theme, not replace it with an alternative visual language (e.g., sticking to `primary` color instead of introducing `indigo` if it's not the project's primary accent).
+
 ## 🤖 AI Operational Directive
 For every response involving code, you must execute these steps:
 1.  **Resolution Step:** Simulate searching Step 1 and Step 2.
-2.  **Layout/Theme Check:** Ensure the code integrates into the current layout and uses the established color palette tokens.
+2.  **Layout/Theme Check:** Ensure the code integrates into the current layout and uses the established color palette tokens. **Never break the default style theme.**
 3.  **Translation Check:** Ensure zero hardcoded strings (use `t()`).
 4.  **Motion Check:** Verify randomized Framer Motion wrappers are present.
 5.  **Justification:** If you create a new component, explain why existing Atoms/Molecules were insufficient.
+

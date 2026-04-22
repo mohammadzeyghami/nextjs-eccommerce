@@ -36,8 +36,8 @@ export function ControllerDatePicker<T extends FieldValues>({
   return (
     <div className={cn("space-y-2.5 w-full", className)}>
       {label && (
-        <Label 
-          htmlFor={name} 
+        <Label
+          htmlFor={name}
           className="text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground px-1"
         >
           {label}
@@ -54,7 +54,7 @@ export function ControllerDatePicker<T extends FieldValues>({
               <Button
                 variant={"outline"}
                 className={cn(
-                  "w-full h-14 justify-start text-start font-normal rounded-2xl px-6 bg-muted/20 border-none hover:bg-muted transition-all duration-300 gap-3",
+                  "w-full justify-start text-start font-normal rounded-xl px-4 py-3 text-body-md bg-muted/20 border border-primary/20 hover:bg-muted/10 transition-all duration-300 gap-3",
                   !field.value && "text-muted-foreground",
                   error && "ring-2 ring-destructive/20 bg-destructive/5"
                 )}
@@ -80,9 +80,9 @@ export function ControllerDatePicker<T extends FieldValues>({
       />
 
       {error && (
-        <Typography 
-          variant="small" 
-          weight="bold" 
+        <Typography
+          variant="small"
+          weight="bold"
           className="text-destructive mt-1 px-1 lowercase first-letter:uppercase"
         >
           {error}

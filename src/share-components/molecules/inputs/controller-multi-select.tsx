@@ -29,7 +29,7 @@ export function ControllerMultiSelect<T extends FieldValues>({
 }: ControllerMultiSelectProps<T>) {
   const { control, formState: { errors } } = useFormContext<T>();
   const error = errors[name]?.message as string | undefined;
-  
+
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [open, setOpen] = React.useState(false);
   const [inputValue, setInputValue] = React.useState("");
@@ -48,7 +48,7 @@ export function ControllerMultiSelect<T extends FieldValues>({
         control={control}
         render={({ field }) => {
           const selected = (field.value as string[]) || [];
-          
+
           const handleUnselect = (itemValue: string) => {
             field.onChange(selected.filter((i) => i !== itemValue));
           };
@@ -81,7 +81,7 @@ export function ControllerMultiSelect<T extends FieldValues>({
               }}
               className="overflow-visible bg-transparent"
             >
-              <div className="group rounded-2xl bg-muted/20 px-3 py-2 text-sm focus-within:ring-2 focus-within:ring-primary/20 focus-within:bg-background transition-all duration-300">
+              <div className="group rounded-xl bg-muted/20 border border-primary/20 px-4 py-2 min-h-[48px] text-body-md focus-within:ring-2 focus-within:ring-primary/40 focus-within:bg-background transition-all duration-300">
                 <div className="flex flex-wrap gap-1">
                   {selected.map((itemValue) => {
                     const option = options.find((o) => o.value === itemValue);
@@ -125,7 +125,7 @@ export function ControllerMultiSelect<T extends FieldValues>({
                 {open && options.length > 0 && (
                   <div className="absolute top-0 z-50 w-full rounded-2xl border bg-popover text-popover-foreground shadow-2xl outline-none animate-in fade-in-0 zoom-in-95 backdrop-blur-xl">
                     <CommandList>
-                       <CommandGroup className="h-full overflow-auto p-2">
+                      <CommandGroup className="h-full overflow-auto p-2">
                         {options.map((option) => {
                           const isSelected = selected.includes(option.value);
                           return (
@@ -156,9 +156,9 @@ export function ControllerMultiSelect<T extends FieldValues>({
       />
 
       {error && (
-        <Typography 
-          variant="small" 
-          weight="bold" 
+        <Typography
+          variant="small"
+          weight="bold"
           className="text-destructive mt-1 px-1 lowercase first-letter:uppercase"
         >
           {error}

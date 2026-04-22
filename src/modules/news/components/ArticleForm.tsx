@@ -5,12 +5,12 @@ import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useTranslation } from "react-i18next";
-import { 
-  Image as ImageIcon, 
-  Tag as TagIcon, 
-  Search as SearchIcon, 
-  Plus, 
-  Save, 
+import {
+  Image as ImageIcon,
+  Tag as TagIcon,
+  Search as SearchIcon,
+  Plus,
+  Save,
   Send,
   Calendar as CalendarIcon,
 } from "lucide-react";
@@ -80,7 +80,7 @@ export const ArticleForm: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: Math.random() * 0.5 }}
           >
-            <Typography variant="h1" weight="black" className="text-indigo-900 dark:text-indigo-100">
+            <Typography variant="h1" weight="black" className="text-primary">
               {t("admin.news_management.article_form.create_title")}
             </Typography>
             <Typography variant="large" className="text-muted-foreground mt-1">
@@ -121,8 +121,8 @@ export const ArticleForm: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: Math.random() * 0.5 }}
-              className="bg-card rounded-3xl p-2 shadow-sm border border-border/50"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-card rounded-2xl p-2 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-primary/20 dark:border-primary/10"
             >
               <ControllerInput<ArticleValues>
                 name="title"
@@ -134,19 +134,19 @@ export const ArticleForm: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: Math.random() * 0.5 }}
-              className="bg-card rounded-3xl shadow-sm border border-border/50 overflow-hidden flex flex-col min-h-[600px]"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-primary/20 dark:border-primary/10 overflow-hidden flex flex-col min-h-[600px]"
             >
               {/* Toolbar Placeholder */}
-              <div className="bg-muted/10 px-6 py-4 flex items-center gap-4 border-b border-border/50 overflow-x-auto no-scrollbar">
-                 <div className="flex gap-2">
-                    <Button variant="ghost" size="icon" className="size-9 rounded-xl"><Plus className="size-4" /></Button>
-                    <div className="w-px h-6 bg-border mx-1" />
-                    <Button variant="ghost" size="icon" className="size-9 rounded-xl"><ImageIcon className="size-4" /></Button>
-                 </div>
-                 <Typography variant="small" weight="black" className="uppercase tracking-widest text-muted-foreground ml-auto">
-                    {t("admin.news_management.article_form.rich_editor")}
-                 </Typography>
+              <div className="bg-muted/20 px-6 py-4 flex items-center gap-4 border-b border-primary/10 overflow-x-auto no-scrollbar">
+                <div className="flex gap-2">
+                  <Button variant="ghost" size="icon" className="size-9 rounded-xl"><Plus className="size-4" /></Button>
+                  <div className="w-px h-6 bg-border mx-1" />
+                  <Button variant="ghost" size="icon" className="size-9 rounded-xl"><ImageIcon className="size-4" /></Button>
+                </div>
+                <Typography variant="small" weight="black" className="uppercase tracking-widest text-muted-foreground ml-auto">
+                  {t("admin.news_management.article_form.rich_editor")}
+                </Typography>
               </div>
 
               <div className="p-8 flex-grow">
@@ -157,7 +157,7 @@ export const ArticleForm: React.FC = () => {
                 />
               </div>
 
-              <div className="px-8 py-4 bg-muted/5 text-[10px] text-muted-foreground flex justify-between border-t border-border/50">
+              <div className="px-8 py-4 bg-muted/20 text-[10px] text-muted-foreground flex justify-between border-t border-border/50">
                 <span className="font-bold">{t("admin.news_management.article_form.last_saved")}</span>
                 <div className="flex gap-6 font-black uppercase tracking-widest">
                   <span>{t("admin.news_management.article_form.words")}: {wordCount}</span>
@@ -170,8 +170,8 @@ export const ArticleForm: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: Math.random() * 0.5 }}
-                className="bg-card p-6 rounded-3xl shadow-sm border border-border/50"
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="bg-card p-6 rounded-2xl shadow-sm border border-primary/20 dark:border-primary/10"
               >
                 <ControllerDatePicker<ArticleValues>
                   name="publishDate"
@@ -182,8 +182,8 @@ export const ArticleForm: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: Math.random() * 0.5 }}
-                className="bg-card p-6 rounded-3xl shadow-sm border border-border/50"
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="bg-card p-6 rounded-2xl shadow-sm border border-primary/20 dark:border-primary/10"
               >
                 <ControllerSelect<ArticleValues>
                   name="visibility"
@@ -203,15 +203,15 @@ export const ArticleForm: React.FC = () => {
             <motion.section
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: Math.random() * 0.5 }}
-              className="bg-card rounded-3xl p-8 shadow-sm border border-border/50"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-card rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-primary/20 dark:border-primary/10"
             >
               <Typography variant="small" weight="black" className="uppercase tracking-[0.2em] text-muted-foreground mb-6 flex items-center gap-3">
                 <ImageIcon className="size-4" />
                 {t("admin.news_management.article_form.featured_image")}
               </Typography>
-              
-              <div className="aspect-[4/3] bg-muted/10 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-primary/40 cursor-pointer transition-all group overflow-hidden relative">
+
+              <div className="aspect-[4/3] bg-muted/20 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-primary/40 cursor-pointer transition-all group overflow-hidden relative">
                 <div className="relative z-10 flex flex-col items-center text-center p-6">
                   <Plus className="size-10 text-primary/30 group-hover:scale-110 group-hover:text-primary/50 transition-all" />
                   <Typography variant="small" className="text-muted-foreground mt-4 font-bold">
@@ -225,8 +225,8 @@ export const ArticleForm: React.FC = () => {
             <motion.section
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: Math.random() * 0.5 }}
-              className="bg-card rounded-3xl p-8 shadow-sm border border-border/50"
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="bg-card rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-primary/20 dark:border-primary/10"
             >
               <Typography variant="small" weight="black" className="uppercase tracking-[0.2em] text-muted-foreground mb-8 flex items-center gap-3">
                 <TagIcon className="size-4" />
@@ -263,8 +263,8 @@ export const ArticleForm: React.FC = () => {
             <motion.section
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: Math.random() * 0.5 }}
-              className="bg-card rounded-3xl p-8 shadow-sm border border-border/50"
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="bg-card rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-primary/20 dark:border-primary/10"
             >
               <Typography variant="small" weight="black" className="uppercase tracking-[0.2em] text-muted-foreground mb-8 flex items-center gap-3">
                 <SearchIcon className="size-4" />
@@ -276,7 +276,7 @@ export const ArticleForm: React.FC = () => {
                   name="seoTitle"
                   label={t("admin.news_management.article_form.seo_title")}
                 />
-                
+
                 <ControllerTextarea<ArticleValues>
                   name="metaDescription"
                   label={t("admin.news_management.article_form.meta_desc")}
@@ -284,7 +284,7 @@ export const ArticleForm: React.FC = () => {
                   rows={3}
                 />
 
-                <div className="p-5 bg-muted/5 rounded-2xl border border-border/30 space-y-2">
+                <div className="p-5 bg-muted/20 rounded-2xl border border-border/30 space-y-2">
                   <div className="text-primary text-sm font-bold hover:underline cursor-pointer truncate">
                     {methods.watch("seoTitle") || t("admin.news_management.article_form.seo_preview_placeholder")}
                   </div>

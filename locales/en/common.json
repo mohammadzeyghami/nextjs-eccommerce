@@ -479,9 +479,18 @@
           "quote_author": "Morteza Momayez",
           "body_p3": "Ultimately, our goal in gathering this collection is to create a space for thinking and reconsidering cultural assets. Every piece in this archive has a story to tell, and every article is a window to a deeper understanding of modern aesthetics.",
           "related": [
-            { "title": "Impact of Bauhaus on Iranian Contemporary Architecture", "category": "editorial" },
-            { "title": "Calligraphy Tradition in the Digital Age", "category": "curation" },
-            { "title": "How to Build an Art Collection?", "category": "archive" }
+            {
+              "title": "Impact of Bauhaus on Iranian Contemporary Architecture",
+              "category": "editorial"
+            },
+            {
+              "title": "Calligraphy Tradition in the Digital Age",
+              "category": "curation"
+            },
+            {
+              "title": "How to Build an Art Collection?",
+              "category": "archive"
+            }
           ]
         }
       },

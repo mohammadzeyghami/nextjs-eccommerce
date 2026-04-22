@@ -33,20 +33,20 @@ export function ControllerTextarea<T extends FieldValues>({
   return (
     <div className={cn("space-y-2.5 w-full", className)}>
       {label && (
-        <Label 
-          htmlFor={name} 
+        <Label
+          htmlFor={name}
           className="text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground px-1"
         >
           {label}
           {required && <span className="text-destructive ml-1">*</span>}
         </Label>
       )}
-      
+
       <div className="relative group/textarea">
         {Icon && (
           <Icon className="absolute left-4 top-4 size-5 text-muted-foreground group-focus-within/textarea:text-primary transition-colors z-10 pointer-events-none" />
         )}
-        
+
         <Controller
           name={name}
           control={control}
@@ -66,9 +66,9 @@ export function ControllerTextarea<T extends FieldValues>({
       </div>
 
       {error && (
-        <Typography 
-          variant="small" 
-          weight="bold" 
+        <Typography
+          variant="small"
+          weight="bold"
           className="text-destructive mt-1 px-1 lowercase first-letter:uppercase"
         >
           {error}
