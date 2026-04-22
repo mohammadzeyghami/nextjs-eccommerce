@@ -70,6 +70,14 @@ You are forbidden from generating raw HTML (`div`, `button`, `input`). You must 
     * Error: `toast.error(t('...'))`
 * **Zero Guesswork:** The user must never be left in an uncertain state after performing an action.
 
+## 📝 Core Skill 10: Declarative Form Primitives
+* **Zero-Raw Directive:** You are strictly forbidden from using raw `<input />`, `<textarea />`, or `<select />` tags in ANY component.
+* **Mandatory Wrapper Usage:** You MUST use the context-aware controller components:
+    * `ControllerInput` (for text, email, password)
+    * `ControllerTextarea` (for long-form content)
+    * `ControllerSelect` (for options)
+* **Rationale:** This ensures unified validation (via Zod), consistent aesthetics (via Shadcn/Tailwind), and zero prop-drilling (via useFormContext).
+
 ## 🤖 AI Operational Directive
 For every response involving code, you must execute these steps:
 1.  **Resolution Step:** Simulate searching Step 1 and Step 2.

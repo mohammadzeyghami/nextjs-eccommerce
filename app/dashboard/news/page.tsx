@@ -10,6 +10,8 @@ import { NewsStats } from '@/src/modules/dashboard/news/components/NewsStats';
 import { NewsFilters } from '@/src/modules/dashboard/news/components/NewsFilters';
 import { NewsTable } from '@/src/modules/dashboard/news/components/NewsTable';
 
+import Link from 'next/link';
+
 export default function NewsManagementPage() {
   const { t } = useTranslation();
 
@@ -34,10 +36,12 @@ export default function NewsManagementPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Button size="lg" className="rounded-2xl h-14 px-8 font-black text-md shadow-xl shadow-primary/20 gap-3 group">
-            <Plus className="size-6 group-hover:rotate-90 transition-transform duration-500" />
-            {t('admin.news_management.add_new')}
-          </Button>
+          <Link href="/dashboard/news/create">
+            <Button size="lg" className="rounded-2xl h-14 px-8 font-black text-md shadow-xl shadow-primary/20 gap-3 group">
+              <Plus className="size-6 group-hover:rotate-90 transition-transform duration-500" />
+              {t('admin.news_management.add_new')}
+            </Button>
+          </Link>
         </motion.div>
       </section>
 
@@ -51,15 +55,17 @@ export default function NewsManagementPage() {
       <NewsTable />
 
       {/* FAB for Mobile */}
-      <motion.button 
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="md:hidden fixed bottom-32 left-8 z-50 size-16 rounded-full bg-primary text-primary-foreground shadow-2xl flex items-center justify-center border-4 border-background group"
-      >
-        <Plus className="size-8 group-hover:rotate-90 transition-transform duration-500" />
-      </motion.button>
+      <Link href="/dashboard/news/create">
+        <motion.button 
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="md:hidden fixed bottom-32 left-8 z-50 size-16 rounded-full bg-primary text-primary-foreground shadow-2xl flex items-center justify-center border-4 border-background group"
+        >
+          <Plus className="size-8 group-hover:rotate-90 transition-transform duration-500" />
+        </motion.button>
+      </Link>
     </AnimatedSections>
   );
 }
