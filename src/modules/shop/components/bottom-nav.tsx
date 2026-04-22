@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
 import { Home, Grid, ShoppingBag, User, BookOpen } from "lucide-react"
@@ -9,6 +10,13 @@ import { cn } from "@/lib/utils"
 export function BottomNav() {
   const { t } = useTranslation()
   const pathname = usePathname()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
 
   const navItems = [
     { href: "/", label: t("home"), icon: Home },
