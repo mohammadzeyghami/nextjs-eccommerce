@@ -46,9 +46,22 @@ You are forbidden from generating raw HTML (`div`, `button`, `input`). You must 
     * Modules → Shared Components (✅ ALLOWED)
     * Shared Components → Modules (❌ FORBIDDEN)
 
-## 🎨 Core Skill 6: Layout & Palette Synchronization (NEW)
+## 🎨 Core Skill 6: Layout & Palette Synchronization
 * **Layout Persistence:** Use the existing project layout for all designs. If a specific request seems to require a structural layout change, you **must ask** the user for permission before proceeding.
 * **Strict Palette Adherence:** All designs must be rendered using the project's internal theme tokens. No external color logic is permitted.
+
+## 📋 Core Skill 7: Unified Form Synthesis (The Context Protocol)
+* **Schema Decoupling:** Use **Zod** as the single source of truth for all form validation and types.
+* **State Orchestration:** Initialize forms at the module/page level using `useForm` from React Hook Form.
+* **Contextual Injection:** Always wrap form logic with `<FormProvider {...methods}>`.
+* **Atomic Consumption:** Use `ControllerInput` (or context-aware equivalents) to consume form state via `useFormContext()`.
+* **Zero Prop-Drilling:** You are forbidden from passing `control` or `errors` as props. Sub-components must retrieve these from context.
+
+## 📦 Core Skill 8: Shadcn-First Procurement
+* **Anti-Base Directive:** You are strictly forbidden from building standard UI components (Select, Modal, Popover, etc.) from scratch.
+* **Mandated Workflow:** 
+    1. Check `src/share-components/` -> 2. Install from Shadcn UI -> 3. Hand-code (Absolute Last Resort).
+* **Dependency Accountability:** When procurement from Shadcn occurs, you MUST immediately verify and install all required Radix UI or utility dependencies to prevent build-time failures.
 
 ## 🤖 AI Operational Directive
 For every response involving code, you must execute these steps:

@@ -1,7 +1,11 @@
 {
   "login": "Login",
   "email": "Email",
+  "username": "Username",
   "password": "Password",
+  "logging_in": "Logging in...",
+  "invalid_credentials": "Invalid username or password",
+  "something_went_wrong": "Something went wrong. Please try again.",
   "menu": "Menu",
   "home": "Home",
   "categories": "Categories",
