@@ -5,7 +5,7 @@ import { p2e } from '@/lib/utils';
 export interface CartItem {
   id: string;
   title: string;
-  price: string;
+  price: number;
   image: string;
   quantity: number;
 }
