@@ -18,12 +18,12 @@ import {
 import { Input } from "@/src/share-components/molecules/inputs/input";
 import { Separator } from "@/src/share-components/atoms/separator";
 import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
-import { cn } from "@/lib/utils";
+import { cn, formatPrice, e2p } from "@/lib/utils";
 
 import { useCartStore } from "@/store/useCartStore";
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const addItem = useCartStore((state) => state.addItem);
   const [mounted, setMounted] = React.useState(false);
 
@@ -47,16 +47,16 @@ export default function Home() {
   };
 
   const flashSaleItems = [
-    { id: 'fs-1', title: t('shop.flash_sale.watch'), price: '۴,۲۰۰,۰۰۰', old: '۷,۰۰۰,۰۰۰', discount: '-۴۰٪', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuASWj11d-FMZBUnMEW4YAGgCuJ2s6xhrY8XDr39herJPbuWBQW8418374AgkVHAT28pj-s2oQW4knhZ5IRjPiPyKXs9NBhI9zfDkS3ysh5DKAIZF1T9m_TybE6pnkk-JU_NlmDp-vMdrQtRPFJdW4pbnVaN7_73x_0Rh-T8T3I75wGdc2h0pnx-db1J8OCYi7QIWe_XnAHVVzUGu-817veUpXyfdicOhED37pL-wWhpHtB3QfdxcwBw1qBp-2DSa9TWij0CE3KDVEg' },
-    { id: 'fs-2', title: t('shop.flash_sale.shoes'), price: '۲,۹۰۰,۰۰۰', old: '۳,۸۰۰,۰۰۰', discount: '-۲۵٪', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAF2AYCxBnwBMXHRAAyMwIqSNIS_yCKLY1sTQRG92mtT38EM8qAtOSAXNmdtgTvIA1tGC3EYYFsLUBTpAsLNHzdMa877Vm75KsGpokS00Ax5_BX5rExg3bV7nr4Qv5YVU1ZuX3eGCjZC-bL7KyVciratLL3IW1i8bq8_mN-YEy7KPx4NdPapv6VDKeFxoTlDisr3j1KeSRC0aqttF2kxEF2vFmtfCg9bULt888fVx4vxsCp1i8WQqHdGW9poZQXsAaFIPgc7bSf2Ic' },
-    { id: 'fs-3', title: t('shop.flash_sale.headphones'), price: '۹,۴۰۰,۰۰۰', old: '۱۱,۰۰۰,۰۰۰', discount: '-۱۵٪', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuANG3M8hEYLsdI4yJNZEMM8_3rFhuQJ9sHij5rDtzteUKztyYdE-r8l_rx9tpCvUtX517jcL0euI2ZGnau6UbEwLwB3TtZFKRTLVe_KOoALxQ1WdK2AxzjygsCBd_AlxfXF8alspwLdIh1xKFwwMnCjPDKtf_s1mXiFEJLwFck6cFwQANFr8CJCqtYrK_8K3YC-uxXhxImhcwdG5rjtL7kMCt8pJEFf3m70itDAgulw6ZblHZ-hLCkTbk4lb6zxrYtxEbpEoGyV4Ps' }
+    { id: 'fs-1', title: t('shop.flash_sale.watch'), price: 4200000, old: 7000000, discount: 40, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuASWj11d-FMZBUnMEW4YAGgCuJ2s6xhrY8XDr39herJPbuWBQW8418374AgkVHAT28pj-s2oQW4knhZ5IRjPiPyKXs9NBhI9zfDkS3ysh5DKAIZF1T9m_TybE6pnkk-JU_NlmDp-vMdrQtRPFJdW4pbnVaN7_73x_0Rh-T8T3I75wGdc2h0pnx-db1J8OCYi7QIWe_XnAHVVzUGu-817veUpXyfdicOhED37pL-wWhpHtB3QfdxcwBw1qBp-2DSa9TWij0CE3KDVEg' },
+    { id: 'fs-2', title: t('shop.flash_sale.shoes'), price: 2900000, old: 3800000, discount: 25, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAF2AYCxBnwBMXHRAAyMwIqSNIS_yCKLY1sTQRG92mtT38EM8qAtOSAXNmdtgTvIA1tGC3EYYFsLUBTpAsLNHzdMa877Vm75KsGpokS00Ax5_BX5rExg3bV7nr4Qv5YVU1ZuX3eGCjZC-bL7KyVciratLL3IW1i8bq8_mN-YEy7KPx4NdPapv6VDKeFxoTlDisr3j1KeSRC0aqttF2kxEF2vFmtfCg9bULt888fVx4vxsCp1i8WQqHdGW9poZQXsAaFIPgc7bSf2Ic' },
+    { id: 'fs-3', title: t('shop.flash_sale.headphones'), price: 9400000, old: 11000000, discount: 15, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuANG3M8hEYLsdI4yJNZEMM8_3rFhuQJ9sHij5rDtzteUKztyYdE-r8l_rx9tpCvUtX517jcL0euI2ZGnau6UbEwLwB3TtZFKRTLVe_KOoALxQ1WdK2AxzjygsCBd_AlxfXF8alspwLdIh1xKFwwMnCjPDKtf_s1mXiFEJLwFck6cFwQANFr8CJCqtYrK_8K3YC-uxXhxImhcwdG5rjtL7kMCt8pJEFf3m70itDAgulw6ZblHZ-hLCkTbk4lb6zxrYtxEbpEoGyV4Ps' }
   ];
 
   const newArrivals = [
-    { id: 'na-1', key: 'classic_shoes', price: '۱,۲۰۰,۰۰۰', rating: '۴.۸', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD36TaqhQhWWGSHrN-9ZoKruXkOTutpN2HjL-gQLNtGu-7ciJFj9UPgLYwI6eGFt3ImXPuJDmIajZnqiTaK3kCNgXrKrThc5Bh3_mOLlsLqcu5uy7qM0s10MsFuk6izk_uQXe160V19kzuuLrO9auRuGtukxypbmOZndNyUeHQR9-RIXeEaVrGYRnbqfK4M5JN_C3KShJ2M35UMUOk7Q4COQmQvKz_4GETfjFml3sCagsILFNL9YrpRB-PzdmM6-B-X2w_Bz-19L0c' },
-    { id: 'na-2', key: 'leather_wallet', price: '۸۵۰,۰۰۰', rating: '۴.۹', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD-95tVR8J_O-hh7isvVdXihnrDzTsZ4949srH6nGMCIqEQLwcI_7gDHVsroGMaUloHyjSGXHp6sCLJHOM8r680cqKxAUujd9bMNxPlfD4KP2VSotP6MdCjlbp1FFEtZn4IXheyg8HImKvzTYshlIKJBghCALubPcq_j9XfQlzbfPV29a7gntYG8mDAWFJPbelZ-8KkrI44njInYAJ5x08JwSUu5gMQXQMCKi7NzfE2fJyQBLTdzgyHEBDD23z6hIt2_I4zznhAlKA' },
-    { id: 'na-3', key: 'pro_headphones', price: '۵,۷۰۰,۰۰۰', rating: '۵.۰', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDLT3ogpF1JPcAMGzQH2JsDPA62vvLUM_yhldC5RrIIoUkxi03_jeu7KfI8hO7Fz1NM9C2JiAXUaPckPL2aNKqEeGBryHXue8xPBqD-5cjZ0jOpDx3wAUvz93OHQfZoQgmznseplFOsY9Ub-zWMP_M6MVUqRShCJULmRMrf8z3NqjlHlZaumlWJsPGtWMYZRaWsWUhoKy7vRN3d1ivyFT2WOVFzCHj0Two227FhL64fhPuET-t6uTezYs8HNU-1bVrKdQcXnDnbHuo' },
-    { id: 'na-4', key: 'nordic_chair', price: '۱۴,۳۰۰,۰۰۰', rating: '۴.۷', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDob4z2JpupZzNugAtTjt3dZTMgPfafLyAWwhmyjf9s7eqz05KADu7LL6UN7kTbEi9zvFKpeGfRi5OBZH5_Ml29Wpf9YdHsvyWhCTReSzIoB70uurNqa2-wp87I0ELALR-iJkyr1rJFGdDBkJb6udO69hBhiaEA44YZuFaYsbtF-YuSxPmwie8FTsz8UpJU-N4K3LrGsYqTsJbU_RTTPxH1GPglGZLYHB3TGm01vZo5ZFzxDszkOTlTRGqXyt1yfa_a5ZSsrkuoIB8' },
+    { id: 'na-1', key: 'classic_shoes', price: 1200000, rating: 4.8, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD36TaqhQhWWGSHrN-9ZoKruXkOTutpN2HjL-gQLNtGu-7ciJFj9UPgLYwI6eGFt3ImXPuJDmIajZnqiTaK3kCNgXrKrThc5Bh3_mOLlsLqcu5uy7qM0s10MsFuk6izk_uQXe160V19kzuuLrO9auRuGtukxypbmOZndNyUeHQR9-RIXeEaVrGYRnbqfK4M5JN_C3KShJ2M35UMUOk7Q4COQmQvKz_4GETfjFml3sCagsILFNL9YrpRB-PzdmM6-B-X2w_Bz-19L0c' },
+    { id: 'na-2', key: 'leather_wallet', price: 850000, rating: 4.9, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD-95tVR8J_O-hh7isvVdXihnrDzTsZ4949srH6nGMCIqEQLwcI_7gDHVsroGMaUloHyjSGXHp6sCLJHOM8r680cqKxAUujd9bMNxPlfD4KP2VSotP6MdCjlbp1FFEtZn4IXheyg8HImKvzTYshlIKJBghCALubPcq_j9XfQlzbfPV29a7gntYG8mDAWFJPbelZ-8KkrI44njInYAJ5x08JwSUu5gMQXQMCKi7NzfE2fJyQBLTdzgyHEBDD23z6hIt2_I4zznhAlKA' },
+    { id: 'na-3', key: 'pro_headphones', price: 5700000, rating: 5.0, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDLT3ogpF1JPcAMGzQH2JsDPA62vvLUM_yhldC5RrIIoUkxi03_jeu7KfI8hO7Fz1NM9C2JiAXUaPckPL2aNKqEeGBryHXue8xPBqD-5cjZ0jOpDx3wAUvz93OHQfZoQgmznseplFOsY9Ub-zWMP_M6MVUqRShCJULmRMrf8z3NqjlHlZaumlWJsPGtWMYZRaWsWUhoKy7vRN3d1ivyFT2WOVFzCHj0Two227FhL64fhPuET-t6uTezYs8HNU-1bVrKdQcXnDnbHuo' },
+    { id: 'na-4', key: 'nordic_chair', price: 14300000, rating: 4.7, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDob4z2JpupZzNugAtTjt3dZTMgPfafLyAWwhmyjf9s7eqz05KADu7LL6UN7kTbEi9zvFKpeGfRi5OBZH5_Ml29Wpf9YdHsvyWhCTReSzIoB70uurNqa2-wp87I0ELALR-iJkyr1rJFGdDBkJb6udO69hBhiaEA44YZuFaYsbtF-YuSxPmwie8FTsz8UpJU-N4K3LrGsYqTsJbU_RTTPxH1GPglGZLYHB3TGm01vZo5ZFzxDszkOTlTRGqXyt1yfa_a5ZSsrkuoIB8' },
   ];
 
   return (
@@ -147,15 +147,15 @@ export default function Home() {
                       className="object-cover transition-transform duration-700 group-hover/product:scale-110"
                     />
                     <Badge variant="destructive" className="absolute top-4 right-4 px-4 py-2 rounded-xl text-sm font-black shadow-lg">
-                      {item.discount}
+                      {i18n.language === 'fa' ? `-${e2p(item.discount)}٪` : `-${item.discount}%`}
                     </Badge>
                   </CardHeader>
                   <CardContent className="p-6">
                     <CardTitle className="text-xl font-bold mb-2 group-hover/product:text-primary transition-colors">{item.title}</CardTitle>
                     <CardDescription className="text-muted-foreground mb-4">{t('shop.flash_sale.new_stock')}</CardDescription>
                     <div className="flex items-center gap-3">
-                      <span className="text-primary font-black text-2xl">{item.price} {t('shop.flash_sale.currency')}</span>
-                      <span className="text-muted-foreground/60 line-through text-sm">{item.old}</span>
+                      <span className="text-primary font-black text-2xl">{formatPrice(item.price, i18n.language)} {t('shop.flash_sale.currency')}</span>
+                      <span className="text-muted-foreground/60 line-through text-sm">{formatPrice(item.old, i18n.language)}</span>
                     </div>
                   </CardContent>
                   <CardFooter className="px-6 pb-6 pt-0 bg-transparent opacity-90">
@@ -234,9 +234,9 @@ export default function Home() {
                 <CardContent className="p-5">
                   <CardTitle className="font-bold text-foreground truncate">{t(`shop.new_arrivals.${prod.key}`)}</CardTitle>
                   <div className="flex justify-between items-center mt-3">
-                    <span className="text-xl font-black text-primary">{prod.price}</span>
+                    <span className="text-xl font-black text-primary">{formatPrice(prod.price, i18n.language)}</span>
                     <div className="flex items-center text-[10px] text-muted-foreground gap-1 bg-muted px-2 py-1 rounded-lg">
-                      <span>{prod.rating}</span>
+                      <span>{i18n.language === 'fa' ? e2p(prod.rating) : prod.rating}</span>
                       <Star className="size-2 text-amber-500 fill-current" />
                     </div>
                   </div>

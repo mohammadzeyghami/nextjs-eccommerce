@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { p2e } from '@/lib/utils';
 
 export interface CartItem {
   id: string;
@@ -58,7 +59,7 @@ export const useCartStore = create<CartState>()(
       totalPrice: () => {
         return get().items.reduce((acc, item) => {
           // Extract numeric value from string price (e.g. "۴,۲۰۰,۰۰۰" -> 4200000)
-          const numericPrice = parseInt(item.price.replace(/[^\d]/g, '').replace(/[۰-۹]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d).toString()));
+          const numericPrice = parseInt(p2e(item.price).replace(/[^\d]/g, ''));
           return acc + (numericPrice * item.quantity);
         }, 0);
       },

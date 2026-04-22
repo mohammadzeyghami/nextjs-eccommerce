@@ -28,25 +28,25 @@ import {
   TableRow 
 } from "@/src/share-components/atoms/table";
 import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
-import { cn } from "@/lib/utils";
+import { cn, formatPrice, e2p } from "@/lib/utils";
 import Image from "next/image";
 
 export default function DashboardOverview() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const stats = [
     { 
       title: t('admin.dashboard.stats.total_sales'), 
-      value: "۱۲۸,۴۵۰,۰۰۰", 
+      value: 128450000, 
       unit: t('admin.dashboard.stats.currency'),
-      trend: "+۱۲٪", 
+      trend: 12, 
       icon: CreditCard,
       color: "text-indigo-600",
       bg: "bg-indigo-500/10"
     },
     { 
       title: t('admin.dashboard.stats.active_orders'), 
-      value: "۸۴", 
+      value: 84, 
       unit: "",
       sub: t('admin.dashboard.stats.active_orders_sub'),
       icon: Package,
@@ -55,7 +55,7 @@ export default function DashboardOverview() {
     },
     { 
       title: t('admin.dashboard.stats.new_users'), 
-      value: "۱۵", 
+      value: 15, 
       unit: "",
       sub: t('admin.dashboard.stats.new_users_sub'),
       icon: Users,
@@ -100,7 +100,7 @@ export default function DashboardOverview() {
                 </div>
                 {stat.trend && (
                    <Badge className="bg-emerald-500/10 text-emerald-600 border-none font-black px-3 py-1 gap-1">
-                    {stat.trend}
+                    {i18n.language === 'fa' ? `+${e2p(stat.trend)}٪` : `+${stat.trend}%`}
                     <TrendingUp className="size-3" />
                   </Badge>
                 )}
@@ -111,7 +111,7 @@ export default function DashboardOverview() {
               <div className="space-y-1">
                 <p className="text-muted-foreground font-sans font-bold text-xs uppercase tracking-widest">{stat.title}</p>
                 <h3 className="text-3xl font-black text-foreground flex items-baseline gap-2">
-                  {stat.value}
+                  {typeof stat.value === 'number' ? formatPrice(stat.value, i18n.language) : stat.value}
                   {stat.unit && <span className="text-sm font-bold text-muted-foreground">{stat.unit}</span>}
                 </h3>
               </div>
@@ -173,7 +173,7 @@ export default function DashboardOverview() {
                       </Badge>
                     </TableCell>
                     <TableCell className="text-left rtl:text-right px-8">
-                      <span className="font-headline font-black text-foreground text-lg">{order.amount}</span>
+                      <span className="font-headline font-black text-foreground text-lg">{formatPrice(order.amount, i18n.language)}</span>
                     </TableCell>
                   </TableRow>
                 ))}

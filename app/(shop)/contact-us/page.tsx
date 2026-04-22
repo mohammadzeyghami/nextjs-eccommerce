@@ -14,9 +14,10 @@ import {
 } from "lucide-react";
 import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
 import Image from "next/image";
+import { e2p } from '@/lib/utils';
 
 export default function ContactUsPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <main className="min-h-screen bg-background">
@@ -140,7 +141,7 @@ export default function ContactUsPage() {
                       {t('contact_page.phone')}
                     </h3>
                     <p className="text-muted-foreground font-sans text-xl" dir="ltr">
-                      +۹۸ ۲۱ ۱۲۳۴ ۵۶۷۸
+                      {i18n.language === 'fa' ? e2p('+98 21 1234 5678') : '+98 21 1234 5678'}
                     </p>
                   </div>
                 </div>
