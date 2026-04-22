@@ -2,13 +2,13 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
-  variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span' | 'small'
+  variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span' | 'small' | 'large'
   weight?: 'normal' | 'medium' | 'bold' | 'black'
 }
 
 const Typography = React.forwardRef<HTMLElement, TypographyProps>(
   ({ className, variant = 'p', weight = 'normal', ...props }, ref) => {
-    const Component = variant
+    const Component = (variant === 'large' ? 'p' : variant) as any
     
     const weights = {
       normal: 'font-normal',
@@ -25,6 +25,7 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps>(
       p: 'text-base leading-relaxed',
       span: 'text-base',
       small: 'text-xs uppercase tracking-widest',
+      large: 'text-lg font-medium leading-relaxed',
     }
 
     return (
