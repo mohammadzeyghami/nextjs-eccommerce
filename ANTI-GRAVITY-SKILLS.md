@@ -78,6 +78,17 @@ You are forbidden from generating raw HTML (`div`, `button`, `input`). You must 
     * `ControllerSelect` (for options)
 * **Rationale:** This ensures unified validation (via Zod), consistent aesthetics (via Shadcn/Tailwind), and zero prop-drilling (via useFormContext).
 
+## 🛣️ Core Skill 12: Route-Based Creation (MANDATORY)
+* **Zero-Modal Directive:** You are strictly forbidden from placing creation forms (e.g., Add Order, Add User) inside Modals, Sheets, or Drawers.
+* **Mandatory Route Pattern:** Every "Add" or "Create" action must navigate to a dedicated route ending in `/create` (e.g., `/dashboard/orders/create`). 
+* **Rationale:** This ensures better accessibility, linkability, and a focused workspace for complex forms.
+
+## 🎨 Core Skill 13: UI Fluidity & Button Integrity (MANDATORY)
+* **Zero-Wrap Rule:** Buttons must NEVER have wrapping text (2 lines). Use `whitespace-nowrap` on all button labels. If the text is too long, use a shorter key or increase container width, but NEVER allow it to break into two lines.
+* **Language Validation:** You must ALWAYS test your implementation in both Persian (`fa`) and English (`en`) to ensure translation keys are correct and layouts don't break in RTL/LTR.
+
+
+
 ## 🎨 Core Skill 11: Theme Integrity & Zero-Invasive Styling
 * **Preserve Global Identity:** You are strictly forbidden from overriding global CSS variables or theme tokens with hardcoded values (e.g., custom slate-900/50 backgrounds) unless explicitly requested.
 * **Semantic Anchor Rule:** Always anchor component styles to the project's semantic tokens (`bg-card`, `bg-background`, `bg-muted`). 
