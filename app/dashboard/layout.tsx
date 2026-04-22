@@ -15,6 +15,7 @@ import { Badge } from "@/src/share-components/atoms/badge";
 import { cn } from "@/lib/utils";
 import { AuthGuard } from "@/src/modules/auth/components/AuthGuard";
 import { useAuthStore } from "@/src/modules/auth/store/useAuthStore";
+import { toast } from "@/src/share-components/molecules/sonner";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -32,6 +33,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   const handleLogout = () => {
     logout();
+    toast.success(t('toasts.logout_success'));
     router.push('/login');
   };
 

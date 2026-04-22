@@ -63,6 +63,13 @@ You are forbidden from generating raw HTML (`div`, `button`, `input`). You must 
     1. Check `src/share-components/` -> 2. Install from Shadcn UI -> 3. Hand-code (Absolute Last Resort).
 * **Dependency Accountability:** When procurement from Shadcn occurs, you MUST immediately verify and install all required Radix UI or utility dependencies to prevent build-time failures.
 
+## 🔔 Core Skill 9: Global Toast Feedback
+* **Mandatory Feedback Rule:** Every backend request (Mutation/Query), authentication action, or critical state change MUST be followed by a `toast()` notification.
+* **Semantic Signaling:** 
+    * Success: `toast.success(t('...'))`
+    * Error: `toast.error(t('...'))`
+* **Zero Guesswork:** The user must never be left in an uncertain state after performing an action.
+
 ## 🤖 AI Operational Directive
 For every response involving code, you must execute these steps:
 1.  **Resolution Step:** Simulate searching Step 1 and Step 2.

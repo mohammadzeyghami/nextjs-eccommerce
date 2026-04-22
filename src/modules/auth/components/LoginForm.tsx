@@ -13,6 +13,7 @@ import { ControllerSelect } from "@/src/share-components/molecules/inputs/contro
 import { useAuthStore } from "@/src/modules/auth/store/useAuthStore";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { toast } from "@/src/share-components/molecules/sonner";
 
 const loginSchema = z.object({
   username: z.string().min(1, { message: "Username is required" }),
@@ -28,7 +29,6 @@ export const LoginForm = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const { login } = useAuthStore();
-  const [error, setError] = React.useState<string | null>(null);
   const [isLoading, setIsLoading] = React.useState(false);
 
   const methods = useForm<LoginValues>({
@@ -43,17 +43,17 @@ export const LoginForm = () => {
   });
 
   const onSubmit = async (data: LoginValues) => {
-    setError(null);
     setIsLoading(true);
     try {
       const success = await login(data.username, data.password);
       if (success) {
+        toast.success(t('toasts.login_success'));
         router.push('/dashboard');
       } else {
-        setError(t('invalid_credentials') || 'Invalid username or password');
+        toast.error(t('invalid_credentials') || 'Invalid username or password');
       }
     } catch (err) {
-      setError(t('something_went_wrong') || 'An error occurred during login');
+      toast.error(t('something_went_wrong') || 'An error occurred during login');
     } finally {
       setIsLoading(false);
     }
@@ -102,16 +102,6 @@ export const LoginForm = () => {
           placeholder="Optional message"
           icon={MessageSquare}
         />
-
-        {error && (
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="p-4 rounded-2xl bg-destructive/10 border border-destructive/20 text-destructive text-xs font-bold text-center"
-          >
-            {error}
-          </motion.div>
-        )}
 
         <Button 
           type="submit" 

@@ -6,6 +6,12 @@
   "logging_in": "Logging in...",
   "invalid_credentials": "Invalid username or password",
   "something_went_wrong": "Something went wrong. Please try again.",
+  "toasts": {
+    "login_success": "Welcome to the Archive",
+    "logout_success": "You have successfully logged out",
+    "error": "Operation Failed",
+    "success": "Action Successful"
+  },
   "menu": "Menu",
   "home": "Home",
   "categories": "Categories",
