@@ -19,8 +19,17 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const pathname = usePathname();
   const router = useRouter();
   const { t } = useTranslation();
+  const [mounted, setMounted] = useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const closeDrawer = () => setIsDrawerOpen(false);
+
+  if (!mounted) {
+    return <div className="fixed inset-0 bg-background" />;
+  }
 
   const links = [
     { href: "/dashboard", icon: LayoutDashboard, label: t("admin.nav.dashboard") },

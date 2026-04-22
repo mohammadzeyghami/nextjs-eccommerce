@@ -368,7 +368,52 @@
         "recommended": "Recommended Read",
         "related": "Related Articles",
         "back_to_journal": "Back to Journal",
-        "next_article": "Next Article"
+        "next_article": "Next Article",
+        "mock_article": {
+          "title": "Modernist Art in the New Century: Reconsidering the Archive",
+          "author": "Alireza Parsa",
+          "date": "October 6, 2024",
+          "sidebar_items": [
+            "Roots of Minimalist Design",
+            "Impact of Typography on Visual Perception",
+            "The Future of Digital Archives"
+          ],
+          "lead": "In today's fast-paced world, the concept of the archive has transformed from a dusty warehouse to a living and dynamic institution. In this writing, we explore how Iranian modernism has established a bridge between calligraphy traditions and today's digital needs.",
+          "body_p1": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+          "figure_caption": "Figure 1: Visualization of color movement in empty space; inspiring minimalist design.",
+          "section_title": "Return to Roots",
+          "body_p2": "Typography is not only a tool for conveying meaning, but also a form of art rooted in the depths of our history. The use of Nastaliq lines in modern user interface environments is a challenge faced by contemporary designers. In 'Archive', we strive to bridge this gap using new web standards and optimized Persian fonts.",
+          "quote": "Good design is not only seen, but felt. Archive is a collection of emotions recorded in the form of shape and color.",
+          "quote_author": "Morteza Momayez",
+          "body_p3": "Ultimately, our goal in gathering this collection is to create a space for thinking and reconsidering cultural assets. Every piece in this archive has a story to tell, and every article is a window to a deeper understanding of modern aesthetics.",
+          "related": [
+            { "title": "Impact of Bauhaus on Iranian Contemporary Architecture", "category": "editorial" },
+            { "title": "Calligraphy Tradition in the Digital Age", "category": "curation" },
+            { "title": "How to Build an Art Collection?", "category": "archive" }
+          ]
+        }
+      },
+      "articles": {
+        "featured": {
+          "title": "Modernist Revival: How Simplicity Reclaimed the World",
+          "excerpt": "In today's noisy world, returning to the fundamentals of design and architecture is not a choice, but a necessity. In this issue, we explore why pure forms endure.",
+          "date": "June 4, 2024"
+        },
+        "1": {
+          "title": "Ten Designers Who Pushed Digital Boundaries",
+          "excerpt": "A look at pioneering works in motion typography and visual interactions this year.",
+          "read_time_val": "6"
+        },
+        "2": {
+          "title": "The Lost Archive: Rare Bauhaus Photographs",
+          "excerpt": "The story of discovering negatives that redefine the history of modernism. A new light on the dark corners of art history.",
+          "read_time_val": "12"
+        },
+        "3": {
+          "title": "Form and Function in Everyday Objects",
+          "excerpt": "Why are chairs designed in the 1960s still the most comfortable and beautiful options for modern homes?",
+          "read_time_val": "4"
+        }
       }
     }
   },

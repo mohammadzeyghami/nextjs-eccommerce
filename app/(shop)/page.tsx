@@ -25,6 +25,15 @@ import { useCartStore } from "@/store/useCartStore";
 export default function Home() {
   const { t } = useTranslation();
   const addItem = useCartStore((state) => state.addItem);
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="min-h-screen bg-background" />;
+  }
 
   const handleAddToCart = (e: React.MouseEvent, item: any) => {
     e.preventDefault();
