@@ -10,32 +10,39 @@ import { cn } from "@/lib/utils";
 
 export default function NewsPage() {
   const { t } = useTranslation();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const articles = [
     {
       id: '1',
       category: 'Curation',
-      title: 'ده طراح برتر که مرزهای دیجیتال را جابجا کردند',
-      excerpt: 'نگاهی به آثار پیشرو در حوزه تایپوگرافی متحرک و تعاملات بصری در سال جاری میلادی.',
-      readTime: '۶',
+      title: t('shop.journal_page.articles.1.title'),
+      excerpt: t('shop.journal_page.articles.1.excerpt'),
+      readTime: t('shop.journal_page.articles.1.read_time_val'),
       img: '/images/news-1.png',
       highlight: false
     },
     {
       id: '2',
       category: 'Archive',
-      title: 'آرشیو گمشده: عکسهای نایاب از باوهاوس',
-      excerpt: 'داستان کشف نگاتیوهایی که تاریخ مدرنیسم را دوباره تعریف میکنند. نوری تازه بر زوایای تاریک تاریخ هنر.',
-      readTime: '۱۲',
+      title: t('shop.journal_page.articles.2.title'),
+      excerpt: t('shop.journal_page.articles.2.excerpt'),
+      readTime: t('shop.journal_page.articles.2.read_time_val'),
       img: '/images/news-2.png',
       highlight: true
     },
     {
       id: '3',
       category: 'Journal',
-      title: 'فرم و عملکرد در اشیاء روزمره',
-      excerpt: 'چرا هنوز صندلیهای طراحی شده در دهه ۶۰ میلادی راحتترین و زیباترین گزینهها برای خانههای مدرن هستند؟',
-      readTime: '۴',
+      title: t('shop.journal_page.articles.3.title'),
+      excerpt: t('shop.journal_page.articles.3.excerpt'),
+      readTime: t('shop.journal_page.articles.3.read_time_val'),
       img: '/images/news-3.png',
       highlight: false
     }
@@ -72,11 +79,13 @@ export default function NewsPage() {
               </div>
               <div className="lg:col-span-5 flex flex-col justify-center p-8 lg:p-16">
                 <span className="text-primary/70 font-bold tracking-widest text-xs mb-6 uppercase">
-                  {t('shop.journal_page.categories.editorial')} • ۱۵ خرداد ۱۴۰۳
+                  {t('shop.journal_page.categories.editorial')} • {t('shop.journal_page.articles.featured.date')}
                 </span>
-                <h2 className="text-3xl md:text-4xl font-black text-primary mb-8 leading-[1.2] font-headline group-hover:opacity-80 transition-opacity">احیای مدرنیسم: چگونه سادگی دوباره جهان را تسخیر کرد</h2>
+                <h2 className="text-3xl md:text-4xl font-black text-primary mb-8 leading-[1.2] font-headline group-hover:opacity-80 transition-opacity">
+                  {t('shop.journal_page.articles.featured.title')}
+                </h2>
                 <p className="text-muted-foreground mb-10 text-lg leading-loose font-headline">
-                  در دنیای پرهیاهوی امروز، بازگشت به اصول اولیه طراحی و معماری نه یک انتخاب، بلکه یک ضرورت است. ما در این شماره به بررسی چرایی ماندگاری فرمهای خالص میپردازیم.
+                  {t('shop.journal_page.articles.featured.excerpt')}
                 </p>
                 <div className="inline-flex items-center gap-3 text-primary font-bold group-hover:gap-5 transition-all">
                   {t('shop.journal_page.read_article')}
@@ -143,7 +152,6 @@ export default function NewsPage() {
             </Link>
           ))}
         </div>
-
         {/* Pagination */}
         <div className="mt-32 text-center">
           <button className="bg-primary text-primary-foreground px-16 py-6 rounded-2xl font-black text-lg hover:shadow-2xl hover:-translate-y-1 transition-all shadow-xl shadow-primary/20">

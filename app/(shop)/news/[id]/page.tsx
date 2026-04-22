@@ -22,22 +22,28 @@ import { cn } from "@/lib/utils";
 export default function NewsDetailPage() {
   const { t } = useTranslation();
   const params = useParams();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const article = {
     id: params.id,
-    title: "هنر مدرنیسم در قرن جدید: بازنگری در آرشیو",
-    author: "علیرضا پارسا",
-    date: "۱۴ مهر ۱۴۰۳",
+    title: t('shop.journal_page.details.mock_article.title'),
+    author: t('shop.journal_page.details.mock_article.author'),
+    date: t('shop.journal_page.details.mock_article.date'),
     category: "journal",
     heroImg: "/images/news-banner.png",
     contentImg: "/images/news-content.png"
   };
 
-  const relatedArticles = [
-    { title: 'تاثیر باوهاوس بر معماری معاصر ایران', category: 'editorial', img: '/images/news-2.png' },
-    { title: 'سنت خوشنویسی در عصر دیجیتال', category: 'curation', img: '/images/news-1.png' },
-    { title: 'چگونه یک کلکسیون هنری بسازیم؟', category: 'archive', img: '/images/news-3.png' },
-  ];
+  const relatedArticles = (t('shop.journal_page.details.mock_article.related', { returnObjects: true }) as any[]).map((rel, i) => ({
+    ...rel,
+    img: `/images/news-${i + 1}.png`
+  }));
 
   return (
     <main className="min-h-screen bg-background">
@@ -86,18 +92,12 @@ export default function NewsDetailPage() {
                   {t('shop.journal_page.details.in_this_article')}
                 </h4>
                 <ul className="space-y-5 text-muted-foreground text-lg font-headline">
-                  <li className="hover:text-primary cursor-pointer transition-colors flex items-center gap-3">
-                    <div className="size-1.5 rounded-full bg-primary" />
-                    ریشههای طراحی مینیمال
-                  </li>
-                  <li className="hover:text-primary cursor-pointer transition-colors flex items-center gap-3">
-                    <div className="size-1.5 rounded-full bg-primary" />
-                    تاثیر تایپوگرافی بر درک بصری
-                  </li>
-                  <li className="hover:text-primary cursor-pointer transition-colors flex items-center gap-3">
-                    <div className="size-1.5 rounded-full bg-primary" />
-                    آینده آرشیوهای دیجیتال
-                  </li>
+                  {(t('shop.journal_page.details.mock_article.sidebar_items', { returnObjects: true }) as string[]).map((item, idx) => (
+                    <li key={idx} className="hover:text-primary cursor-pointer transition-colors flex items-center gap-3">
+                      <div className="size-1.5 rounded-full bg-primary" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div className="flex flex-col gap-6 px-4">
@@ -119,12 +119,12 @@ export default function NewsDetailPage() {
           {/* Main Body Text */}
           <div className="col-span-12 lg:col-span-8 space-y-12">
             <div className="text-3xl md:text-4xl text-foreground font-light leading-relaxed font-headline text-justify">
-              در دنیای پرشتاب امروز، مفهوم آرشیو از یک انبار خاکگرفته به یک نهاد زنده و پویا تبدیل شده است. ما در این نوشتار به بررسی این موضوع میپردازیم که چگونه مدرنیسم ایرانی توانسته است پلی میان سنتهای خوشنویسی و نیازهای دیجیتال امروز برقرار کند.
+              {t('shop.journal_page.details.mock_article.lead')}
             </div>
 
             <div className="text-xl text-foreground/80 leading-[2] font-headline text-justify space-y-8">
               <p>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و آنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد.
+                {t('shop.journal_page.details.mock_article.body_p1')}
               </p>
 
               <figure className="my-20 py-12 bg-muted/30 rounded-3xl relative overflow-hidden group border border-border/50">
@@ -132,25 +132,27 @@ export default function NewsDetailPage() {
                   <Image src={article.contentImg} alt="Content" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <figcaption className="mt-8 px-12 text-sm text-muted-foreground italic text-center font-headline">
-                  تصویر ۱: تجسم حرکت رنگ در فضای خالی؛ الهامبخش طراحی مینیمالیست.
+                  {t('shop.journal_page.details.mock_article.figure_caption')}
                 </figcaption>
               </figure>
 
-              <h2 className="text-4xl font-black text-foreground pt-12 font-headline leading-tight">بازگشت به ریشهها</h2>
+              <h2 className="text-4xl font-black text-foreground pt-12 font-headline leading-tight">
+                {t('shop.journal_page.details.mock_article.section_title')}
+              </h2>
               <p>
-                تایپوگرافی نه تنها ابزاری برای انتقال معنا، بلکه فرمی از هنر است که در اعماق تاریخ ما ریشه دارد. استفاده از خطوط نستعلیق در محیطهای رابط کاربری مدرن، چالشی است که طراحان معاصر با آن روبرو هستند. ما در "آرشیو" تلاش میکنیم تا این فاصله را با استفاده از استانداردهای جدید وب و بهینهسازی فونتهای فارسی کاهش دهیم.
+                {t('shop.journal_page.details.mock_article.body_p2')}
               </p>
 
               <div className="bg-primary p-16 my-20 rounded-[3rem] text-primary-foreground relative shadow-2xl shadow-primary/20">
                 <Quote className="size-20 text-primary-foreground/20 absolute top-8 right-8" />
                 <blockquote className="text-3xl md:text-4xl font-black leading-loose italic relative z-10 font-headline">
-                  "طراحی خوب نه تنها دیده میشود، بلکه احساس میشود. آرشیو مجموعهای از احساسات ثبت شده در قالب فرم و رنگ است."
+                  "{t('shop.journal_page.details.mock_article.quote')}"
                 </blockquote>
-                <p className="mt-8 font-black text-xl text-primary-foreground/70">— مرتضی ممیز</p>
+                <p className="mt-8 font-black text-xl text-primary-foreground/70">— {t('shop.journal_page.details.mock_article.quote_author')}</p>
               </div>
 
               <p>
-                در نهایت، هدف ما از گردآوری این مجموعه، ایجاد فضایی برای تفکر و بازنگری در داشتههای فرهنگی است. هر قطعه در این آرشیو، داستانی برای گفتن دارد و هر مقاله، دریچهای به سوی درکی عمیقتر از زیباییشناسی مدرن است.
+                {t('shop.journal_page.details.mock_article.body_p3')}
               </p>
             </div>
 
