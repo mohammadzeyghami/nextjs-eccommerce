@@ -22,8 +22,8 @@ describe('Mobile Navigation', () => {
         cy.visit('/');
         cy.get('body').should('be.visible');
 
-        // Click the hamburger menu button
-        cy.get('header button').contains(/menu/i).click({ force: true });
+        // Click the hamburger menu button in the header
+        cy.get('header button.md\\:hidden, header .md\\:hidden button').first().click({ force: true });
         
         // Wait briefly for the drawer to be added to DOM
         cy.wait(500);
@@ -41,6 +41,7 @@ describe('Mobile Navigation', () => {
   describe('Dashboard Navigation', () => {
     const dashboardRoutes = [
       '/dashboard/products',
+      '/dashboard/news',
       '/dashboard/orders',
       '/dashboard/users',
       '/dashboard',
@@ -52,7 +53,7 @@ describe('Mobile Navigation', () => {
 
       dashboardRoutes.forEach((route) => {
         // In dashboard, click the hamburger in the header
-        cy.get('header button').filter('.md\\:hidden').first().click({ force: true });
+        cy.get('header button.md\\:hidden, header .md\\:hidden button').first().click({ force: true });
 
         // Wait briefly
         cy.wait(500);

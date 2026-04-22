@@ -9,7 +9,7 @@ interface AppState {
 
 export const useAppStore = create<AppState>((set) => ({
   theme: 'system',
-  lang: 'system',
+  lang: 'fa', // Default to 'fa' to match server-side render
   setTheme: (theme) => set({ theme }),
   setLang: (lang) => set({ lang }),
 }));

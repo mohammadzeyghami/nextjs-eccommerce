@@ -32,6 +32,38 @@
   "email_placeholder_reset": "Email Address",
   "send_reset_link": "Send Reset Link",
   "back_to_login": "Back to login",
+  "welcome_back": "Welcome Back",
+  "login_desc": "To access the archive, please sign in to your account",
+  "dont_have_account": "Don't have an account?",
+  "app_manifesto": "The Archive is a curated space for modernist thoughts and design heritage. By logging in, you agree to our guidelines.",
+  "copyright_auth": "© 2024 THE PERSO-MODERNIST ARCHIVE. CURATED WITH INTENTION.",
+  "help": "Help",
+  "facebook": "Facebook",
+  "support": "Support",
+  "signup": "Sign Up",
+  "create_account": "Create Account",
+  "full_name": "Full Name",
+  "full_name_placeholder": "Enter your full name",
+  "mobile_number": "Mobile Number",
+  "mobile_placeholder": "0912XXXXXXX",
+  "already_have_account": "Already have an account?",
+  "terms_and_conditions": "Terms and Conditions",
+  "privacy_policy": "Privacy Policy",
+  "agree_to": "By creating an account, I agree to the {{terms}} and {{privacy}}.",
+  "forgot_password_desc": "To restore access to the archive, enter your email address. We will send you a reset link.",
+  "reset_link_sent": "Email Sent",
+  "reset_link_sent_desc": "Please check your inbox (and spam folder) for further instructions.",
+  "signup_hero_title": "The Archive;<br/>Curated for You",
+  "signup_hero_desc": "Join a community of collectors and enthusiasts of art and design. A different experience of online shopping with an exhibition approach.",
+  "guaranteed_authenticity": "Guaranteed Authenticity",
+  "authenticity_desc": "All products have been expert-evaluated",
+  "exclusive_shipping": "Exclusive Shipping",
+  "shipping_desc": "Secure and professional packaging",
+  "signup_desc": "We're happy to have you join us",
+  "or_signup_with": "Or sign up with",
+  "apple": "Apple",
+  "archive_security": "Archive Security",
+  "security_desc": "Your data is encrypted and protected with modernist protocols.",
   "about_page": {
     "title_top": "The Art of Curation",
     "title_bottom": "In an Age of Abundance",
@@ -147,6 +179,7 @@
       "products": "Products",
       "orders": "Orders",
       "users": "Users",
+      "news": "News",
       "settings": "Settings",
       "logout": "Logout",
       "title": "Admin Panel",
@@ -275,6 +308,26 @@
           "role": "product_manager"
         }
       ]
+    },
+    "news_management": {
+      "title": "Content Management",
+      "desc": "Manage and edit published articles",
+      "all_articles": "Total Articles",
+      "pending_approval": "Pending Approval",
+      "published": "Published",
+      "draft": "Draft",
+      "review": "Review",
+      "search_placeholder": "Search articles...",
+      "add_new": "New Post",
+      "stats_visits": "Visits this month",
+      "stats_comments": "New Comments",
+      "table": {
+        "title": "Post Title",
+        "author": "Author",
+        "date": "Published Date",
+        "status": "Status",
+        "actions": "Actions"
+      }
     }
   },
   "shop": {
@@ -453,5 +506,36 @@
     "address": "402 Niloufar Tower, Vali-e-Asr St., Jordan, Tehran",
     "show_map": "Show on Map",
     "office_title": "Modern Archive Headquarters"
+  },
+  "errors": {
+    "not_found": {
+      "title": "Page Not Found | Archive",
+      "404": "404",
+      "heading": "Lost in the Archive",
+      "description": "We're sorry, but the piece you're looking for is currently not in our collection or has been moved elsewhere.",
+      "back_to_shop": "Back to Shop",
+      "report_error": "Report Error to Curatory Team",
+      "system_error": "System Error",
+      "page_not_found": "Page Not Found",
+      "back_to_home": "Back to Home",
+      "previous_page": "Previous Page",
+      "suggestions_title": "Suggestions for you:",
+      "suggestion_latest": "Latest Collections",
+      "suggestion_top": "Top Products",
+      "suggestion_support": "Contact Support"
+    },
+    "server_error": {
+      "title": "500 Error: Archive Interruption",
+      "500": "500",
+      "heading": "500 Error: Archive Interruption",
+      "internal_error_label": "Internal Server Error",
+      "internal_error_heading": "Internal Server Error",
+      "description": "There is currently an issue communicating with our data repository. Our technical team is investigating. Please try again in a moment.",
+      "retry": "Retry",
+      "back_to_home": "Back to Home",
+      "error_id": "Error ID: #99281-ARCHIVE",
+      "system_monitoring": "System Monitoring Active",
+      "checking_status": "System Status: Investigating"
+    }
   }
 }

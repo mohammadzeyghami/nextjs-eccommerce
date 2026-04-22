@@ -5,7 +5,7 @@ import Image from "next/image";
 import React, { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from "react-i18next";
-import { LayoutDashboard, Package, ShoppingCart, Users, Settings, LogOut, Menu, Bell } from "lucide-react";
+import { LayoutDashboard, Package, ShoppingCart, Users, Settings, LogOut, Menu, Bell, FileText } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/src/share-components/molecules/sheet";
 import { ThemeToggle } from "@/src/share-components/molecules/theme-toggle";
 import { LangToggle } from "@/src/share-components/molecules/lang-toggle";
@@ -34,6 +34,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const links = [
     { href: "/dashboard", icon: LayoutDashboard, label: t("admin.nav.dashboard") },
     { href: "/dashboard/products", icon: Package, label: t("admin.nav.products") },
+    { href: "/dashboard/news", icon: FileText, label: t("admin.nav.news") },
     { href: "/dashboard/orders", icon: ShoppingCart, label: t("admin.nav.orders") },
     { href: "/dashboard/users", icon: Users, label: t("admin.nav.users") },
   ];

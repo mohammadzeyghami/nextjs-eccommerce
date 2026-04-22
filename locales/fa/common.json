@@ -33,6 +33,38 @@
   "email_placeholder_reset": "آدرس ایمیل",
   "send_reset_link": "ارسال لینک بازیابی",
   "back_to_login": "بازگشت به ورود",
+  "welcome_back": "خوش آمدید",
+  "login_desc": "برای دسترسی به آرشیو، لطفا وارد حساب کاربری خود شوید",
+  "dont_have_account": "هنوز عضو نشده‌اید؟",
+  "app_manifesto": "آرشیو فضایی برگزیده برای افکار مدرنیست و میراث طراحی است. با ورود، شما با قوانین ما موافقت می‌کنید.",
+  "copyright_auth": "© ۲۰۲۴ آرشیو پرسو مدرنیست. با دقت انتخاب شده است.",
+  "help": "راهنما",
+  "facebook": "فیسبوک",
+  "support": "پشتیبانی",
+  "signup": "ثبت‌نام",
+  "create_account": "ایجاد حساب کاربری",
+  "full_name": "نام و نام خانوادگی",
+  "full_name_placeholder": "نام کامل خود را وارد کنید",
+  "mobile_number": "شماره موبایل",
+  "mobile_placeholder": "۰۹۱۲XXXXXXX",
+  "already_have_account": "قبلاً عضو شده‌اید؟",
+  "terms_and_conditions": "قوانین و مقررات",
+  "privacy_policy": "سیاست حریم خصوصی",
+  "agree_to": "با ایجاد حساب کاربری، {{terms}} و {{privacy}} را می‌پذیرم.",
+  "forgot_password_desc": "برای بازیابی دسترسی به بایگانی، آدرس ایمیل خود را وارد کنید. ما پیوند بازنشانی را برای شما ارسال خواهیم کرد.",
+  "reset_link_sent": "ایمیل ارسال شد",
+  "reset_link_sent_desc": "لطفاً صندوق ورودی (و پوشه اسپم) خود را برای دستورالعمل‌های بیشتر بررسی کنید.",
+  "signup_hero_title": "آرشیو؛<br/>منتخب برای شما",
+  "signup_hero_desc": "به جامعه‌ای از کلکسیونرها و علاقه‌مندان به هنر و طراحی بپیوندید. تجربه‌ای متفاوت از خرید آنلاین با رویکردی نمایشگاهی.",
+  "guaranteed_authenticity": "اصالت تضمین شده",
+  "authenticity_desc": "تمامی محصولات کارشناسی شده‌اند",
+  "exclusive_shipping": "ارسال اختصاصی",
+  "shipping_desc": "بسته‌بندی ایمن و حرفه‌ای",
+  "signup_desc": "خوشحالیم که به جمع ما می‌پیوندید",
+  "or_signup_with": "یا عضویت با",
+  "apple": "اپل",
+  "archive_security": "امنیت آرشیو",
+  "security_desc": "داده‌های شما با پروتکل‌های مدرنیست رمزنگاری شده و محافظت می‌شوند.",
   "about_page": {
     "title_top": "هنرِ انتخاب",
     "title_bottom": "در عصر فراوانی",
@@ -148,6 +180,7 @@
       "products": "محصولات",
       "orders": "سفارشات",
       "users": "کاربران",
+      "news": "نوشته‌ها",
       "settings": "تنظیمات",
       "logout": "خروج",
       "title": "پنل مدیریت",
@@ -276,6 +309,26 @@
           "role": "product_manager"
         }
       ]
+    },
+    "news_management": {
+      "title": "مدیریت محتوا",
+      "desc": "مدیریت و ویرایش مقالات منتشر شده",
+      "all_articles": "کل مقالات",
+      "pending_approval": "در انتظار تایید",
+      "published": "منتشر شده",
+      "draft": "پیش‌نویس",
+      "review": "بازبینی",
+      "search_placeholder": "جستجو در مقالات...",
+      "add_new": "نوشته جدید",
+      "stats_visits": "بازدید این ماه",
+      "stats_comments": "نظرات تازه",
+      "table": {
+        "title": "عنوان نوشته",
+        "author": "نویسنده",
+        "date": "تاریخ انتشار",
+        "status": "وضعیت",
+        "actions": "عملیات"
+      }
     }
   },
   "shop": {
@@ -454,5 +507,36 @@
     "address": "تهران، محله جردن، خیابان ولیعصر، برج نیلوفر، واحد ۴۰۲",
     "show_map": "نمایش روی نقشه",
     "office_title": "دفتر مرکزی آرشیو مدرن"
+  },
+  "errors": {
+    "not_found": {
+      "title": "صفحه پیدا نشد | آرشیو",
+      "404": "404",
+      "heading": "گم شده در آرشیو",
+      "description": "متأسفیم، اما قطعه‌ای که به دنبال آن هستید در حال حاضر در مجموعه ما موجود نیست یا به جای دیگری منتقل شده است.",
+      "back_to_shop": "بازگشت به فروشگاه",
+      "report_error": "گزارش خطا به تیم کیوریتوری",
+      "system_error": "خطای سیستم",
+      "page_not_found": "صفحه مورد نظر یافت نشد",
+      "back_to_home": "بازگشت به خانه",
+      "previous_page": "صفحه قبلی",
+      "suggestions_title": "پیشنهادات برای شما:",
+      "suggestion_latest": "جدیدترین مجموعه‌ها",
+      "suggestion_top": "محصولات برتر",
+      "suggestion_support": "تماس با پشتیبانی"
+    },
+    "server_error": {
+      "title": "خطای ۵۰۰: وقفه در آرشیو",
+      "500": "500",
+      "heading": "خطای ۵۰۰: وقفه در آرشیو",
+      "internal_error_label": "Internal Server Error",
+      "internal_error_heading": "خطای داخلی سرور",
+      "description": "در حال حاضر مشکلی در برقراری ارتباط با مخزن داده‌های ما به وجود آمده است. تیم فنی ما در حال بررسی موضوع است. لطفاً کمی بعد دوباره تلاش کنید.",
+      "retry": "تلاش مجدد",
+      "back_to_home": "بازگشت به صفحه اصلی",
+      "error_id": "شناسه خطا: #99281-ARCHIVE",
+      "system_monitoring": "System Monitoring Active",
+      "checking_status": "وضعیت سیستم: در حال بررسی"
+    }
   }
 }
