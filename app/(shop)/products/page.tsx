@@ -10,9 +10,10 @@ import { Input } from "@/src/share-components/molecules/inputs/input";
 import { Card, CardContent } from "@/src/share-components/atoms/card";
 import { Badge } from "@/src/share-components/atoms/badge";
 import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
+import { formatPrice, e2p } from "@/lib/utils";
 
 export default function ProductsPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <main className="flex-grow max-w-screen-xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 pb-32 mb-8 bg-background">
@@ -77,7 +78,7 @@ export default function ProductsPage() {
                     <h3 className="font-headline font-black text-foreground text-xl line-clamp-1 group-hover:text-primary transition-colors">{t('shop_products.item_title')} {item}</h3>
                   </div>
                   <div className="flex items-center justify-between mt-auto">
-                    <span className="font-headline font-black text-primary text-xl">۲,۴۵۰,۰۰۰ <span className="text-xs font-bold text-muted-foreground">{t('shop.flash_sale.currency')}</span></span>
+                    <span className="font-headline font-black text-primary text-xl">{formatPrice(2450000, i18n.language)} <span className="text-xs font-bold text-muted-foreground">{t('shop.flash_sale.currency')}</span></span>
                     <Button variant="default" size="icon" className="size-12 rounded-2xl shadow-lg shadow-primary/20 group-hover:scale-105 transition-all">
                       <ShoppingCart className="size-5" />
                     </Button>

@@ -19,10 +19,10 @@ import { Button } from "@/src/share-components/atoms/button";
 import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
 import { useCartStore } from "@/store/useCartStore";
 import { useParams } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { cn, formatPrice, e2p } from "@/lib/utils";
 
 export default function ProductDetailPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const params = useParams();
   const addItem = useCartStore((state) => state.addItem);
   const [quantity, setQuantity] = useState(1);
@@ -31,8 +31,8 @@ export default function ProductDetailPage() {
   const product = {
     id: params.id as string || 'fs-1',
     title: "Studio Headphones Pro",
-    price: "۱۲,۵۰۰,۰۰۰",
-    oldPrice: "۱۴,۰۰۰,۰۰۰",
+    price: 12500000,
+    oldPrice: 14000000,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAOH2d9Vs2wvCBQxGUISdeVOLuR5tGkU_RK38cFJ84xELTJ_OR9xFICcoinbrJo-RYzBMvYM972i9xAkVx0tE7LdxGC8g7SP-tl_WMD8-1K0hKfEETjkSRDEzsaRFGKpUVaVwEe0Y-Ca2ycUAyboYAYLVIuGlBrhfsZWCDdsU0BrwicHxYI_UllzbFQ93eEJ0okD9uy9dafA20Cbl986LOYHZjw3QSSdNMZ1rklYmLOWrGWGXsnqkElljQbw4tH4XZkfzZRwXzKsHw",
     thumbnails: [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCAmQrjLUG6Qx6hwcSZjdbZTP6BzL-YApuRVNFNs9hm6eI02mQINI06eI2WrA6PVfSySWbK3qIYZwjcfhg3TCgyv5RhUQJ_WBIdOuvXb8dNu-cNA7PEWtWRFGxt_nSwrz2-5AV3BjRuw_sSAo8Dl6TBXsTOfijByrcV_wY7sOJSjgpqrJ2BBm6LwdC_NAJv5bnDn6d4nzfCwBnxtPTKJ0QogmwB_NeJ4j7slyvV5T3cLdWbaJGJWBMtplblDhVgbZMzFmN5aAIme1E",
@@ -52,10 +52,10 @@ export default function ProductDetailPage() {
   };
 
   const relatedProducts = [
-    { title: 'هدفون بیسیم AirTune X', price: '۸,۹۰۰,۰۰۰', img: '/images/related_headphones_airtune.png' },
-    { title: 'میکروفون استودیویی ProCast', price: '۱۴,۲۰۰,۰۰۰', img: '/images/related_microphone_procast.png' },
-    { title: 'آمپلیفایر هدفون مدل A2', price: '۵,۸۰۰,۰۰۰', img: '/images/related_amplifier_a2.png' },
-    { title: 'هدفون کلاسیک چوبی Archive', price: '۲۱,۰۰۰,۰۰۰', img: '/images/related_wooden_headphones.png' },
+    { title: 'هدفون بیسیم AirTune X', price: 8900000, img: '/images/related_headphones_airtune.png' },
+    { title: 'میکروفون استودیویی ProCast', price: 14200000, img: '/images/related_microphone_procast.png' },
+    { title: 'آمپلیفایر هدفون مدل A2', price: 5800000, img: '/images/related_amplifier_a2.png' },
+    { title: 'هدفون کلاسیک چوبی Archive', price: 21000000, img: '/images/related_wooden_headphones.png' },
   ];
 
   return (
@@ -110,7 +110,7 @@ export default function ProductDetailPage() {
                     <Star key={s} className="size-4 fill-current" />
                   ))}
                   <Star className="size-4" />
-                  <span className="mr-2 font-bold text-muted-foreground">(۱۲۸ نظر)</span>
+                  <span className="mr-2 font-bold text-muted-foreground">({i18n.language === 'fa' ? e2p(128) : 128} نظر)</span>
                 </div>
                 <span className="text-border">|</span>
                 <span className="text-muted-foreground font-sans">کد کالا: ARCH-7720</span>
@@ -119,8 +119,8 @@ export default function ProductDetailPage() {
 
             <div className="py-8 border-y border-border/40">
               <div className="flex items-baseline gap-3">
-                <span className="text-4xl font-black text-primary font-headline">{product.price}</span>
-                <span className="text-lg font-bold text-muted-foreground">تومان</span>
+                <span className="text-4xl font-black text-primary font-headline">{formatPrice(product.price, i18n.language)}</span>
+                <span className="text-lg font-bold text-muted-foreground">{t('shop.flash_sale.currency')}</span>
               </div>
               <p className="text-sm text-green-600 dark:text-green-400 font-bold mt-3">موجود در انبار - آماده ارسال</p>
             </div>
@@ -145,7 +145,7 @@ export default function ProductDetailPage() {
                     >
                       <Plus className="size-5" />
                     </button>
-                    <span className="font-black text-xl w-6 text-center">{quantity}</span>
+                    <span className="font-black text-xl w-6 text-center">{i18n.language === 'fa' ? e2p(quantity) : quantity}</span>
                     <button 
                       onClick={() => setQuantity(q => Math.max(1, q - 1))} 
                       className="text-primary hover:scale-125 transition-transform"
@@ -171,7 +171,7 @@ export default function ProductDetailPage() {
                 </div>
                 <div className="text-xs">
                   <p className="font-black text-[#131b2e] dark:text-white mb-1">ارسال اکسپرس</p>
-                  <p className="text-muted-foreground">۲۴ الی ۴۸ ساعت</p>
+                  <p className="text-muted-foreground">{i18n.language === 'fa' ? e2p('24 to 48') : '24 to 48'} ساعت</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 p-5 bg-[#ffffff] dark:bg-[#131b2e] rounded-2xl border border-border/40 shadow-sm">
@@ -180,7 +180,7 @@ export default function ProductDetailPage() {
                 </div>
                 <div className="text-xs">
                   <p className="font-black text-[#131b2e] dark:text-white mb-1">گارانتی اصالت</p>
-                  <p className="text-muted-foreground">۱۸ ماه آریا سرویس</p>
+                  <p className="text-muted-foreground">{i18n.language === 'fa' ? e2p(18) : 18} ماه آریا سرویس</p>
                 </div>
               </div>
             </div>
@@ -217,7 +217,7 @@ export default function ProductDetailPage() {
                 activeTab === 'reviews' ? "text-primary" : "text-muted-foreground hover:text-primary"
               )}
             >
-              نظرات کاربران (۱۲۸)
+              نظرات کاربران ({i18n.language === 'fa' ? e2p(128) : 128})
               {activeTab === 'reviews' && <div className="absolute bottom-0 left-0 w-full h-1 bg-primary rounded-t-full" />}
             </button>
           </div>
@@ -269,7 +269,7 @@ export default function ProductDetailPage() {
                 </div>
                 <h3 className="font-black text-xl text-[#131b2e] dark:text-white mb-2 group-hover:text-primary transition-colors font-headline">{item.title}</h3>
                 <div className="flex justify-between items-center mt-3">
-                  <span className="text-primary font-black text-lg">{item.price} تومان</span>
+                  <span className="text-primary font-black text-lg">{formatPrice(item.price, i18n.language)} {t('shop.flash_sale.currency')}</span>
                   <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Premium</span>
                 </div>
               </div>

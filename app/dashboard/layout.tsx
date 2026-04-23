@@ -5,7 +5,7 @@ import Image from "next/image";
 import React, { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from "react-i18next";
-import { LayoutDashboard, Package, ShoppingCart, Users, Settings, LogOut, Menu, Bell } from "lucide-react";
+import { LayoutDashboard, Package, ShoppingCart, Users, Settings, LogOut, Menu, Bell, FileText } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/src/share-components/molecules/sheet";
 import { ThemeToggle } from "@/src/share-components/molecules/theme-toggle";
 import { LangToggle } from "@/src/share-components/molecules/lang-toggle";
@@ -13,6 +13,9 @@ import { Button } from "@/src/share-components/atoms/button";
 import { Separator } from "@/src/share-components/atoms/separator";
 import { Badge } from "@/src/share-components/atoms/badge";
 import { cn } from "@/lib/utils";
+import { AuthGuard } from "@/src/modules/auth/components/AuthGuard";
+import { useAuthStore } from "@/src/modules/auth/store/useAuthStore";
+import { toast } from "@/src/share-components/molecules/sonner";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -20,12 +23,19 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const router = useRouter();
   const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
+  const { logout } = useAuthStore();
 
   React.useEffect(() => {
     setMounted(true);
   }, []);
 
   const closeDrawer = () => setIsDrawerOpen(false);
+
+  const handleLogout = () => {
+    logout();
+    toast.success(t('toasts.logout_success'));
+    router.push('/login');
+  };
 
   if (!mounted) {
     return <div className="fixed inset-0 bg-background" />;
@@ -34,6 +44,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const links = [
     { href: "/dashboard", icon: LayoutDashboard, label: t("admin.nav.dashboard") },
     { href: "/dashboard/products", icon: Package, label: t("admin.nav.products") },
+    { href: "/dashboard/news", icon: FileText, label: t("admin.nav.news") },
     { href: "/dashboard/orders", icon: ShoppingCart, label: t("admin.nav.orders") },
     { href: "/dashboard/users", icon: Users, label: t("admin.nav.users") },
   ];
@@ -104,7 +115,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <div className="p-6 border-t border-border">
         <Button 
           variant="ghost" 
-          onClick={() => router.push("/")}
+          onClick={handleLogout}
           className="w-full justify-start gap-4 h-14 rounded-2xl text-muted-foreground hover:text-destructive hover:bg-destructive/5 transition-all duration-300 group"
         >
           <LogOut className="size-6 transition-transform group-hover:rotate-12" />
@@ -115,63 +126,66 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   );
 
   return (
-    <div className="bg-background text-foreground fixed inset-0 flex flex-row overflow-hidden select-none" dir={t('dir') as any}>
-      {/* Desktop Sidebar */}
-      <aside className={cn(
-        "hidden md:flex flex-col fixed inset-y-0 h-full w-80 bg-card border-x border-border z-50",
-        t('dir') === 'rtl' ? "right-0" : "left-0"
-      )}>
-        {renderSidebarContent()}
-      </aside>
+    <AuthGuard>
+      <div className="bg-background text-foreground fixed inset-0 flex flex-row overflow-hidden select-none" dir={t('dir') as any}>
+        {/* Desktop Sidebar */}
+        <aside className={cn(
+          "hidden md:flex flex-col fixed inset-y-0 h-full w-80 bg-card border-x border-border z-50",
+          t('dir') === 'rtl' ? "right-0" : "left-0"
+        )}>
+          {renderSidebarContent()}
+        </aside>
 
-      {/* Main Content Area */}
-      <div className={cn(
-        "flex-1 flex flex-col h-full max-h-screen overflow-hidden relative z-10", 
-        t('dir') === 'rtl' ? 'md:mr-80' : 'md:ml-80'
-      )}>
-        {/* Top App Bar */}
-        <header className="bg-background/80 backdrop-blur-xl border-b border-border flex justify-between items-center w-full px-8 py-5 z-40 relative">
-          <div className="flex items-center gap-4">
-             <Sheet open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
-              <SheetTrigger 
-                render={
-                  <Button 
-                    variant="ghost"
-                    size="icon"
-                    className="md:hidden"
-                  >
-                    <Menu className="size-6" />
-                  </Button>
-                }
-              />
-              <SheetContent side={t('dir') === 'rtl' ? 'right' : 'left'} className="w-80 p-0 border-x border-border shadow-2xl bg-card" showCloseButton={false}>
-                {renderSidebarContent()}
-              </SheetContent>
-            </Sheet>
-            <h2 className="text-xl font-black text-foreground font-headline uppercase tracking-tighter">
-               {links.find(l => l.href === pathname)?.label || t('admin.nav.title')}
-            </h2>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-muted/30 rounded-xl border border-border/50">
-              <span className="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t('admin.nav.server_live')}</span>
+        {/* Main Content Area */}
+        <div className={cn(
+          "flex-1 flex flex-col h-full max-h-screen overflow-hidden relative z-10", 
+          t('dir') === 'rtl' ? 'md:mr-80' : 'md:ml-80'
+        )}>
+          {/* Top App Bar */}
+          <header className="bg-background/80 backdrop-blur-xl border-b border-border flex justify-between items-center w-full px-8 py-5 z-40 relative">
+            <div className="flex items-center gap-4">
+              <Sheet open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+                <SheetTrigger 
+                  render={
+                    <Button 
+                      variant="ghost"
+                      size="icon"
+                      className="md:hidden"
+                    >
+                      <Menu className="size-6" />
+                    </Button>
+                  }
+                />
+                <SheetContent side={t('dir') === 'rtl' ? 'right' : 'left'} className="w-80 p-0 border-x border-border shadow-2xl bg-card" showCloseButton={false}>
+                  {renderSidebarContent()}
+                </SheetContent>
+              </Sheet>
+              <h2 className="text-xl font-black text-foreground font-headline uppercase tracking-tighter">
+                {links.find(l => l.href === pathname)?.label || t('admin.nav.title')}
+              </h2>
             </div>
-            <ThemeToggle />
-            <LangToggle />
-            <Separator orientation="vertical" className="h-8 mx-2 hidden sm:block" />
-            <Button variant="ghost" size="icon" className="relative group">
-              <Bell className="size-5 text-primary group-hover:scale-110 transition-transform" />
-              <Badge className="absolute -top-1 -right-1 size-4 p-0 flex items-center justify-center bg-destructive text-[10px] border-2 border-background">3</Badge>
-            </Button>
-          </div>
-        </header>
+            <div className="flex items-center gap-3">
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-muted/30 rounded-xl border border-border/50">
+                <span className="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t('admin.nav.server_live')}</span>
+              </div>
+              <ThemeToggle />
+              <LangToggle />
+              <Separator orientation="vertical" className="h-8 mx-2 hidden sm:block" />
+              <Button variant="ghost" size="icon" className="relative group">
+                <Bell className="size-5 text-primary group-hover:scale-110 transition-transform" />
+                <Badge className="absolute -top-1 -right-1 size-4 p-0 flex items-center justify-center bg-destructive text-[10px] border-2 border-background">3</Badge>
+              </Button>
+            </div>
+          </header>
 
-        {/* Content Canvas */}
-        <main className="flex-1 overflow-y-auto p-6 md:p-12 flex flex-col gap-10 bg-muted/10 dark:bg-muted/5 pb-32 md:pb-12">
-          {children}
-        </main>
+          {/* Content Canvas */}
+          <main className="flex-1 overflow-y-auto p-6 md:p-12 flex flex-col gap-10 bg-muted/10 dark:bg-muted/5 pb-32 md:pb-12">
+            {children}
+          </main>
+        </div>
       </div>
-    </div>
+    </AuthGuard>
   );
 }
+

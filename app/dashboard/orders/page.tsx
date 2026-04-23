@@ -6,6 +6,8 @@ import { OrderHeader } from '@/src/modules/dashboard/orders/components/OrderHead
 import { OrderCard } from '@/src/modules/dashboard/orders/components/OrderCard';
 import { AnimatedSections } from '@/src/share-components/molecules/animated-sections';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import { Plus } from 'lucide-react';
 
 const MOCK_ORDERS = [
   {
@@ -83,24 +85,18 @@ export default function OrdersManagementPage() {
         </AnimatePresence>
       </div>
 
-      {/* Mobile Floating Menu for Navigation */}
-      <motion.button 
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="md:hidden fixed bottom-32 left-8 z-50 size-16 rounded-full bg-primary text-primary-foreground shadow-2xl flex items-center justify-center border-4 border-background"
-      >
-        <svg
-          className="size-8"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          viewBox="0 0 24 24"
+      {/* Mobile Floating Action Button */}
+      <Link href="/dashboard/orders/create">
+        <motion.div 
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="md:hidden fixed bottom-32 left-8 z-50 size-16 rounded-full bg-primary text-primary-foreground shadow-2xl flex items-center justify-center border-4 border-background cursor-pointer"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"></path>
-        </svg>
-      </motion.button>
+          <Plus className="size-8" strokeWidth={3} />
+        </motion.div>
+      </Link>
     </AnimatedSections>
   );
 }

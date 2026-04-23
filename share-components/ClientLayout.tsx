@@ -5,6 +5,7 @@ import { useAppStore } from '@/store/useAppStore';
 import '@/lib/i18n';
 import i18n from '@/lib/i18n';
 import QueryProvider from '@/locales/en/react-query/QueryProvider';
+import { Toaster } from '@/src/share-components/molecules/sonner';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const { theme, lang } = useAppStore();
@@ -50,6 +51,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     <div className={`min-h-screen bg-surface text-on-surface antialiased font-body ${lang === 'fa' ? 'rtl' : 'ltr'}`}>
       <QueryProvider>
         {children}
+        <Toaster position={lang === 'fa' ? 'bottom-left' : 'bottom-right'} />
       </QueryProvider>
     </div>
   );

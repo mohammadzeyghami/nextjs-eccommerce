@@ -6,6 +6,7 @@ import { Plus, Search, SlidersHorizontal } from 'lucide-react';
 import { Button } from '@/src/share-components/atoms/button';
 import { Input } from '@/src/share-components/molecules/inputs/input';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export const ProductHeader = () => {
   const { t } = useTranslation();
@@ -26,9 +27,13 @@ export const ProductHeader = () => {
           </p>
         </div>
         
-        <Button className="h-16 px-8 rounded-2xl font-black text-md shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all active:scale-95 bg-primary hover:bg-primary/90 flex gap-3 group">
-          <Plus className="size-6 group-hover:rotate-90 transition-transform duration-500" />
-          {t('admin.products_management.add_new')}
+        <Button 
+          className="h-16 px-8 rounded-2xl font-black text-md shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all active:scale-95 bg-primary hover:bg-primary/90 flex gap-3 group whitespace-nowrap"
+        >
+          <Link href="/dashboard/products/create">
+            <Plus className="size-6 group-hover:rotate-90 transition-transform duration-500" />
+            {t('admin.products_management.add_new')}
+          </Link>
         </Button>
       </motion.div>
 

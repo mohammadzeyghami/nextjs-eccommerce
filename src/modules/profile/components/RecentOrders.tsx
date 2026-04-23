@@ -5,23 +5,24 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Badge } from '@/src/share-components/atoms/badge';
 import { Card } from '@/src/share-components/atoms/card';
+import { formatPrice, e2p } from '@/lib/utils';
 
 export const RecentOrders = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const orders = [
     {
-      id: '#۱۲۸۴۵',
+      id: 12845,
       title: 'کفش ورزشی نایکی',
-      price: '۱,۴۵۰,۰۰۰ تومان',
+      price: 1450000,
       status: 'status_shipping',
       statusVariant: 'secondary',
       img: 'https://picsum.photos/seed/shoes1/200/200'
     },
     {
-      id: '#۱۱۲۰۴',
+      id: 11204,
       title: 'ساعت مچی هوشمند',
-      price: '۳,۲۰۰,۰۰۰ تومان',
+      price: 3200000,
       status: 'status_delivered',
       statusVariant: 'default',
       img: 'https://picsum.photos/seed/watch1/200/200'
@@ -56,10 +57,10 @@ export const RecentOrders = () => {
             <div className="flex-1 space-y-1">
               <div className="flex justify-between items-center">
                 <span className="font-bold text-sm text-foreground">{order.title}</span>
-                <span className="text-primary font-black text-sm">{order.price}</span>
+                <span className="text-primary font-black text-sm">{formatPrice(order.price, i18n.language)} {t('shop.flash_sale.currency')}</span>
               </div>
               <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span className="font-medium">{t('profile_page.order_code')}: {order.id}</span>
+                <span className="font-medium">{t('profile_page.order_code')}: #{i18n.language === 'fa' ? e2p(order.id) : order.id}</span>
                 <Badge variant={order.statusVariant as any} className="h-6 px-3 rounded-full font-bold">
                   {t(`profile_page.${order.status}`)}
                 </Badge>

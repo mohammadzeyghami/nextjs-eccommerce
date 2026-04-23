@@ -8,16 +8,17 @@ import { ChevronRight, Trash2, Plus, Minus, Tag, ShieldCheck, ArrowRight } from 
 import { Button } from "@/src/share-components/atoms/button";
 import { AnimatedSections } from "@/src/share-components/molecules/animated-sections";
 import { useCartStore } from "@/store/useCartStore";
+import { formatPrice, e2p } from "@/lib/utils";
 
 export default function CartPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { items, removeItem, updateQuantity, totalPrice } = useCartStore();
   const subtotal = totalPrice();
 
   const suggestedItems = [
-    { title: 'گلدان مینیمال آرک', price: '۱,۴۵۰,۰۰۰', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDob4z2JpupZzNugAtTjt3dZTMgPfafLyAWwhmyjf9s7eqz05KADu7LL6UN7kTbEi9zvFKpeGfRi5OBZH5_Ml29Wpf9YdHsvyWhCTReSzIoB70uurNqa2-wp87I0ELALR-iJkyr1rJFGdDBkJb6udO69hBhiaEA44YZuFaYsbtF-YuSxPmwie8FTsz8UpJU-N4K3LrGsYqTsJbU_RTTPxH1GPglGZLYHB3TGm01vZo5ZFzxDszkOTlTRGqXyt1yfa_a5ZSsrkuoIB8' },
-    { title: 'شمع معطر صندل', price: '۸۹۰,۰۰۰', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuASWj11d-FMZBUnMEW4YAGgCuJ2s6xhrY8XDr39herJPbuWBQW8418374AgkVHAT28pj-s2oQW4knhZ5IRjPiPyKXs9NBhI9zfDkS3ysh5DKAIZF1T9m_TybE6pnkk-JU_NlmDp-vMdrQtRPFJdW4pbnVaN7_73x_0Rh-T8T3I75wGdc2h0pnx-db1J8OCYi7QIWe_XnAHVVzUGu-817veUpXyfdicOhED37pL-wWhpHtB3QfdxcwBw1qBp-2DSa9TWij0CE3KDVEg' },
-    { title: 'تابلو کانسپت سکوت', price: '۳,۲۰۰,۰۰۰', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAF2AYCxBnwBMXHRAAyMwIqSNIS_yCKLY1sTQRG92mtT38EM8qAtOSAXNmdtgTvIA1tGC3EYYFsLUBTpAsLNHzdMa877Vm75KsGpokS00Ax5_BX5rExg3bV7nr4Qv5YVU1ZuX3eGCjZC-bL7KyVciratLL3IW1i8bq8_mN-YEy7KPx4NdPapv6VDKeFxoTlDisr3j1KeSRC0aqttF2kxEF2vFmtfCg9bULt888fVx4vxsCp1i8WQqHdGW9poZQXsAaFIPgc7bSf2Ic' },
+    { title: 'گلدان مینیمال آرک', price: 1450000, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDob4z2JpupZzNugAtTjt3dZTMgPfafLyAWwhmyjf9s7eqz05KADu7LL6UN7kTbEi9zvFKpeGfRi5OBZH5_Ml29Wpf9YdHsvyWhCTReSzIoB70uurNqa2-wp87I0ELALR-iJkyr1rJFGdDBkJb6udO69hBhiaEA44YZuFaYsbtF-YuSxPmwie8FTsz8UpJU-N4K3LrGsYqTsJbU_RTTPxH1GPglGZLYHB3TGm01vZo5ZFzxDszkOTlTRGqXyt1yfa_a5ZSsrkuoIB8' },
+    { title: 'شمع معطر صندل', price: 890000, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuASWj11d-FMZBUnMEW4YAGgCuJ2s6xhrY8XDr39herJPbuWBQW8418374AgkVHAT28pj-s2oQW4knhZ5IRjPiPyKXs9NBhI9zfDkS3ysh5DKAIZF1T9m_TybE6pnkk-JU_NlmDp-vMdrQtRPFJdW4pbnVaN7_73x_0Rh-T8T3I75wGdc2h0pnx-db1J8OCYi7QIWe_XnAHVVzUGu-817veUpXyfdicOhED37pL-wWhpHtB3QfdxcwBw1qBp-2DSa9TWij0CE3KDVEg' },
+    { title: 'تابلو کانسپت سکوت', price: 3200000, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAF2AYCxBnwBMXHRAAyMwIqSNIS_yCKLY1sTQRG92mtT38EM8qAtOSAXNmdtgTvIA1tGC3EYYFsLUBTpAsLNHzdMa877Vm75KsGpokS00Ax5_BX5rExg3bV7nr4Qv5YVU1ZuX3eGCjZC-bL7KyVciratLL3IW1i8bq8_mN-YEy7KPx4NdPapv6VDKeFxoTlDisr3j1KeSRC0aqttF2kxEF2vFmtfCg9bULt888fVx4vxsCp1i8WQqHdGW9poZQXsAaFIPgc7bSf2Ic' },
   ];
 
   return (
@@ -37,7 +38,7 @@ export default function CartPage() {
               <h1 className="text-6xl font-black text-[#131b2e] dark:text-white font-headline tracking-tighter">
                 {t('cart.title')}
               </h1>
-              <span className="text-sm font-bold text-muted-foreground mb-2 uppercase tracking-widest">{items.length} Items</span>
+              <span className="text-sm font-bold text-muted-foreground mb-2 uppercase tracking-widest">{i18n.language === 'fa' ? e2p(items.length) : items.length} Items</span>
             </div>
 
             {items.length === 0 ? (
@@ -68,10 +69,10 @@ export default function CartPage() {
                       <div className="flex justify-between items-center mt-8">
                         <div className="flex items-center gap-6 bg-white dark:bg-[#1a2236] px-6 py-3 rounded-2xl shadow-sm border border-border/20">
                           <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="text-primary hover:scale-125 transition-transform"><Minus className="size-4" /></button>
-                          <span className="font-black text-lg w-4 text-center">{item.quantity}</span>
+                          <span className="font-black text-lg w-4 text-center">{i18n.language === 'fa' ? e2p(item.quantity) : item.quantity}</span>
                           <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="text-primary hover:scale-125 transition-transform"><Plus className="size-4" /></button>
                         </div>
-                        <span className="text-2xl font-black text-primary font-headline">{item.price} {t('shop.flash_sale.currency')}</span>
+                        <span className="text-2xl font-black text-primary font-headline">{formatPrice(item.price, i18n.language)} {t('shop.flash_sale.currency')}</span>
                       </div>
                     </div>
                   </div>
@@ -104,7 +105,7 @@ export default function CartPage() {
               <div className="space-y-6 mb-10">
                 <div className="flex justify-between text-white/60 font-medium font-sans">
                   <span className="text-xs uppercase tracking-widest">{t('cart.subtotal')}</span>
-                  <span className="text-lg font-bold">{subtotal.toLocaleString()} {t('shop.flash_sale.currency')}</span>
+                  <span className="text-lg font-bold">{formatPrice(subtotal, i18n.language)} {t('shop.flash_sale.currency')}</span>
                 </div>
                 <div className="flex justify-between text-white/60 font-medium font-sans">
                   <span className="text-xs uppercase tracking-widest">{t('cart.shipping')}</span>
@@ -115,7 +116,7 @@ export default function CartPage() {
                   <span className="text-sm font-black uppercase tracking-[0.2em]">{t('cart.total')}</span>
                   <div className="flex flex-col items-end">
                     <span className="text-4xl font-black text-primary-foreground font-headline tracking-tighter">
-                      {subtotal.toLocaleString()}
+                      {formatPrice(subtotal, i18n.language)}
                     </span>
                     <span className="text-[10px] font-bold text-white/40">{t('shop.flash_sale.currency')}</span>
                   </div>
@@ -144,7 +145,7 @@ export default function CartPage() {
                     </div>
                     <div>
                       <h5 className="text-xs font-black text-[#131b2e] dark:text-white group-hover:text-primary transition-colors">{item.title}</h5>
-                      <span className="text-[10px] font-bold text-primary">{item.price} {t('shop.flash_sale.currency')}</span>
+                      <span className="text-[10px] font-bold text-primary">{formatPrice(item.price, i18n.language)} {t('shop.flash_sale.currency')}</span>
                     </div>
                   </div>
                 ))}

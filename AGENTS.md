@@ -33,8 +33,23 @@
 - Logic belongs in `src/modules/<module-name>/`.
 - Modules → Shared Components (✅). Shared → Modules (❌).
 
+## 🛣️ Core Skill 6: Route-Based Creation (MANDATORY)
+- **Zero-Modal:** Creation forms must be in a dedicated `/create` route, never in Modals or Sheets.
+
+## 🎨 Core Skill 7: Button Integrity & Language Validation (MANDATORY)
+- **Zero-Wrap:** Buttons must never have wrapping text. Use `whitespace-nowrap`.
+- **Bilingual Check:** Always verify keys in both `en` and `fa`. Never leave hardcoded strings.
+
+
+
+## 🎨 Core Skill 6: Theme Integrity (MANDATORY)
+- **Zero Breakage:** Never override global theme tokens or background colors with hardcoded values. Anchor all styles to semantic tokens (`bg-card`, `bg-muted`, `text-primary`).
+- **Identity Preservation:** Amplify the existing aesthetic; never replace it with a different visual language.
+
 ## 🤖 AI Operational Directive
 1. **Resolution:** Check Step 1/2.
 2. **Translation:** Zero hardcoded strings.
 3. **Motion:** Randomized Framer Motion wrappers.
-4. **Justification:** Explain new component creation.
+4. **Theme Check:** Ensure zero breakage of the default style theme.
+5. **Justification:** Explain new component creation.
+

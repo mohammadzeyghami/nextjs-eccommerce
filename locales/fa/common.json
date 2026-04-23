@@ -2,6 +2,16 @@
   "login": "ورود",
   "email": "ایمیل",
   "password": "رمز عبور",
+  "username": "نام کاربری",
+  "logging_in": "در حال ورود...",
+  "invalid_credentials": "نام کاربری یا رمز عبور اشتباه است",
+  "something_went_wrong": "مشکلی پیش آمده است. لطفا دوباره تلاش کنید.",
+  "toasts": {
+    "login_success": "به آرشیو خوش آمدید",
+    "logout_success": "شما با موفقیت خارج شدید",
+    "error": "عملیات با شکست مواجه شد",
+    "success": "عملیات با موفقیت انجام شد"
+  },
   "menu": "منو",
   "home": "خانه",
   "categories": "دسته‌بندی‌ها",
@@ -33,6 +43,38 @@
   "email_placeholder_reset": "آدرس ایمیل",
   "send_reset_link": "ارسال لینک بازیابی",
   "back_to_login": "بازگشت به ورود",
+  "welcome_back": "خوش آمدید",
+  "login_desc": "برای دسترسی به آرشیو، لطفا وارد حساب کاربری خود شوید",
+  "dont_have_account": "هنوز عضو نشده‌اید؟",
+  "app_manifesto": "آرشیو فضایی برگزیده برای افکار مدرنیست و میراث طراحی است. با ورود، شما با قوانین ما موافقت می‌کنید.",
+  "copyright_auth": "© ۲۰۲۴ آرشیو پرسو مدرنیست. با دقت انتخاب شده است.",
+  "help": "راهنما",
+  "facebook": "فیسبوک",
+  "support": "پشتیبانی",
+  "signup": "ثبت‌نام",
+  "create_account": "ایجاد حساب کاربری",
+  "full_name": "نام و نام خانوادگی",
+  "full_name_placeholder": "نام کامل خود را وارد کنید",
+  "mobile_number": "شماره موبایل",
+  "mobile_placeholder": "۰۹۱۲XXXXXXX",
+  "already_have_account": "قبلاً عضو شده‌اید؟",
+  "terms_and_conditions": "قوانین و مقررات",
+  "privacy_policy": "سیاست حریم خصوصی",
+  "agree_to": "با ایجاد حساب کاربری، {{terms}} و {{privacy}} را می‌پذیرم.",
+  "forgot_password_desc": "برای بازیابی دسترسی به بایگانی، آدرس ایمیل خود را وارد کنید. ما پیوند بازنشانی را برای شما ارسال خواهیم کرد.",
+  "reset_link_sent": "ایمیل ارسال شد",
+  "reset_link_sent_desc": "لطفاً صندوق ورودی (و پوشه اسپم) خود را برای دستورالعمل‌های بیشتر بررسی کنید.",
+  "signup_hero_title": "آرشیو؛<br/>منتخب برای شما",
+  "signup_hero_desc": "به جامعه‌ای از کلکسیونرها و علاقه‌مندان به هنر و طراحی بپیوندید. تجربه‌ای متفاوت از خرید آنلاین با رویکردی نمایشگاهی.",
+  "guaranteed_authenticity": "اصالت تضمین شده",
+  "authenticity_desc": "تمامی محصولات کارشناسی شده‌اند",
+  "exclusive_shipping": "ارسال اختصاصی",
+  "shipping_desc": "بسته‌بندی ایمن و حرفه‌ای",
+  "signup_desc": "خوشحالیم که به جمع ما می‌پیوندید",
+  "or_signup_with": "یا عضویت با",
+  "apple": "اپل",
+  "archive_security": "امنیت آرشیو",
+  "security_desc": "داده‌های شما با پروتکل‌های مدرنیست رمزنگاری شده و محافظت می‌شوند.",
   "about_page": {
     "title_top": "هنرِ انتخاب",
     "title_bottom": "در عصر فراوانی",
@@ -47,6 +89,48 @@
     "value3_desc": "خلق آثاری که فراتر از ترندهای زودگذر، برای نسل‌ها باقی می‌مانند.",
     "gallery_alt": "تصویر گالری"
   },
+  "order_form": {
+    "title": "نهایی‌سازی سفارش",
+    "customer_info": "اطلاعات خریدار",
+    "full_name": "نام و نام خانوادگی",
+    "full_name_placeholder": "مثلا: امیررضا علوی",
+    "phone": "شماره موبایل",
+    "phone_placeholder": "۰۹۱۲XXXXXXX",
+    "shipping_info": "آدرس و نحوه ارسال",
+    "province_city": "استان و شهر",
+    "province_city_placeholder": "تهران، تهران",
+    "address": "نشانی دقیق پستی",
+    "address_placeholder": "خیابان، کوچه، پلاک، واحد",
+    "zip_code": "کد پستی (۱۰ رقمی)",
+    "zip_code_placeholder": "۱۲۳۴۵۶۷۸۹۰",
+    "note": "یادداشت برای پیک (اختیاری)",
+    "note_placeholder": "مثلا: زنگ خراب است",
+    "payment_method": "شیوه پرداخت",
+    "payment_mellat": "درگاه پرداخت ملت",
+    "payment_mellat_desc": "امن و سریع با کلیه کارت‌های شتاب",
+    "payment_wallet": "کیف پول آرشیو",
+    "payment_wallet_desc": "استفاده از موجودی حساب کاربری",
+    "summary": "خلاصه سفارش",
+    "subtotal": "جمع جزء",
+    "shipping_cost": "هزینه ارسال",
+    "tax": "مالیات بر ارزش افزوده",
+    "payable_amount": "مبلغ قابل پرداخت",
+    "submit_order": "تکمیل و پرداخت نهایی",
+    "terms_hint": "با کلیک بر روی دکمه بالا، شما قوانین و مقررات آرشیو را پذیرفته‌اید.",
+    "item_vase": "گلدان بلورین مینیمال",
+    "item_vase_desc": "۱ عدد • آبی مه‌آلود",
+    "item_notebook": "دفترچه چرم دست‌دوز",
+    "item_notebook_desc": "۲ عدد • قهوه‌ای سوخته",
+    "toman": "تومان",
+    "success": "سفارش با موفقیت ثبت شد",
+    "errors": {
+      "full_name_required": "نام و نام خانوادگی الزامی است",
+      "phone_required": "شماره موبایل الزامی است",
+      "province_city_required": "استان و شهر الزامی است",
+      "address_required": "نشانی پستی الزامی است",
+      "zip_code_invalid": "کد پستی باید ۱۰ رقم باشد"
+    }
+  },
   "cart": {
     "title": "سبد خرید شما",
     "item_title": "کیف چرم کلاسیک",
@@ -58,6 +142,40 @@
     "discount": "تخفیف",
     "total": "مبلغ قابل پرداخت",
     "checkout": "تکمیل خرید و پرداخت"
+  },
+  "product_form": {
+    "title": "افزودن و ویرایش محصول",
+    "basic_info": "اطلاعات پایه محصول",
+    "name": "نام کالا",
+    "name_placeholder": "مثلا: ساعت مچی مدل اکسپلوور",
+    "category": "دسته‌بندی",
+    "category_select": "انتخاب کنید...",
+    "stock": "موجودی انبار",
+    "stock_placeholder": "تعداد واحد",
+    "description": "توضیحات محصول",
+    "description_placeholder": "جزئیات فنی و کاربردی محصول را بنویسید...",
+    "features": "ویژگی‌های محصول",
+    "feature_title": "عنوان ویژگی",
+    "feature_title_placeholder": "مثلا: رنگ",
+    "feature_value": "مقدار",
+    "feature_value_placeholder": "مثلا: نقره‌ای",
+    "add_feature": "افزودن ویژگی",
+    "price": "قیمت نهایی",
+    "price_hint": "چهار میلیون و پانصد هزار تومان",
+    "upload_images": "آپلود تصاویر گالری",
+    "add_photo": "افزودن تصویر",
+    "upload_hint": "فرمت‌های مجاز: JPG, PNG (حداکثر ۵ مگابایت)",
+    "preview_active": "پیش‌نمایش عمومی فعال است",
+    "cancel": "انصراف",
+    "save": "ذخیره تغییرات",
+    "delete_product": "حذف این محصول از آرشیو",
+    "success": "محصول با موفقیت ثبت شد",
+    "errors": {
+      "name_required": "نام کالا الزامی است",
+      "category_required": "انتخاب دسته‌بندی الزامی است",
+      "price_required": "قیمت الزامی است",
+      "stock_required": "موجودی الزامی است"
+    }
   },
   "product": {
     "collection": "مجموعه",
@@ -148,6 +266,7 @@
       "products": "محصولات",
       "orders": "سفارشات",
       "users": "کاربران",
+      "news": "نوشته‌ها",
       "settings": "تنظیمات",
       "logout": "خروج",
       "title": "پنل مدیریت",
@@ -158,8 +277,9 @@
     },
     "products_management": {
       "title": "مدیریت محصولات",
-      "desc": "موجودی گالری، قیمت‌گذاری و دسته‌بندی‌ها را مدیریت کنید.",
+      "desc": "مدیریت موجودی گالری، قیمت‌گذاری و دسته‌بندی‌ها.",
       "add_new": "افزودن محصول جدید",
+      "create_subtitle": "اطلاعات دقیق کالا را در سیستم آرشیو ثبت کنید.",
       "search_placeholder": "جستجو در رستارشاپ...",
       "filters": "فیلترها",
       "inventory": "موجودی",
@@ -202,6 +322,8 @@
       "pending": "در انتظار بررسی",
       "shipped": "ارسال شده",
       "cancelled": "لغو شده",
+      "add_order": "افزودن سفارش جدید",
+      "create_subtitle": "اطلاعات سفارش را برای ثبت در سیستم تکمیل کنید.",
       "order_id": "شناسه سفارش",
       "customer": "مشتری",
       "date": "تاریخ ثبت",
@@ -276,6 +398,55 @@
           "role": "product_manager"
         }
       ]
+    },
+    "news_management": {
+      "title": "مدیریت محتوا",
+      "desc": "مدیریت و ویرایش مقالات منتشر شده",
+      "all_articles": "کل مقالات",
+      "pending_approval": "در انتظار تایید",
+      "published": "منتشر شده",
+      "draft": "پیش‌نویس",
+      "review": "بازبینی",
+      "search_placeholder": "جستجو در مقالات...",
+      "add_new": "نوشته جدید",
+      "stats_visits": "بازدید این ماه",
+      "stats_comments": "نظرات تازه",
+      "table": {
+        "title": "عنوان نوشته",
+        "author": "نویسنده",
+        "date": "تاریخ انتشار",
+        "status": "وضعیت",
+        "actions": "عملیات"
+      },
+      "article_form": {
+        "create_title": "افزودن مقاله جدید",
+        "create_desc": "ایجاد محتوای جدید برای مجله آرشیو",
+        "save_draft": "پیش‌نویس",
+        "publish": "انتشار مقاله",
+        "featured_image": "تصویر شاخص",
+        "upload_hint": "برای آپلود کلیک کنید یا تصویر را بکشید",
+        "taxonomy": "طبقه‌بندی",
+        "category": "دسته‌بندی",
+        "tags": "برچسب‌ها",
+        "tags_placeholder": "افزودن برچسب...",
+        "seo_settings": "تنظیمات سئو",
+        "seo_title": "عنوان سئو",
+        "meta_desc": "توضیحات متا",
+        "meta_desc_placeholder": "خلاصه‌ای جذاب برای نتایج جستجو...",
+        "google_preview_hint": "عنوان سئو و توضیحات در اینجا برای ترغیب کلیک نمایش داده می‌شوند.",
+        "article_title_placeholder": "عنوان مقاله را اینجا بنویسید...",
+        "content_placeholder": "داستان خود را آغاز کنید...",
+        "last_saved": "آخرین ذخیره: چند لحظه پیش",
+        "words": "کلمات",
+        "reading_time": "زمان مطالعه",
+        "publish_date": "تاریخ انتشار",
+        "visibility": "قابلیت دیدن",
+        "public": "عمومی",
+        "private": "خصوصی",
+        "now": "همین حالا",
+        "publish_success": "مقاله با موفقیت منتشر شد",
+        "draft_saved": "پیش‌نویس با موفقیت ذخیره شد"
+      }
     }
   },
   "shop": {
@@ -388,9 +559,18 @@
           "quote_author": "مرتضی ممیز",
           "body_p3": "در نهایت، هدف ما از گردآوری این مجموعه، ایجاد فضایی برای تفکر و بازنگری در داشته‌های فرهنگی است. هر قطعه در این آرشیو، داستانی برای گفتن دارد و هر مقاله، دریچه‌ای به سوی درکی عمیق‌تر از زیبایی‌شناسی مدرن است.",
           "related": [
-            { "title": "تاثیر باوهاوس بر معماری معاصر ایران", "category": "editorial" },
-            { "title": "سنت خوشنویسی در عصر دیجیتال", "category": "curation" },
-            { "title": "چگونه یک کلکسیون هنری بسازیم؟", "category": "archive" }
+            {
+              "title": "تاثیر باوهاوس بر معماری معاصر ایران",
+              "category": "editorial"
+            },
+            {
+              "title": "سنت خوشنویسی در عصر دیجیتال",
+              "category": "curation"
+            },
+            {
+              "title": "چگونه یک کلکسیون هنری بسازیم؟",
+              "category": "archive"
+            }
           ]
         }
       },
@@ -454,5 +634,36 @@
     "address": "تهران، محله جردن، خیابان ولیعصر، برج نیلوفر، واحد ۴۰۲",
     "show_map": "نمایش روی نقشه",
     "office_title": "دفتر مرکزی آرشیو مدرن"
+  },
+  "errors": {
+    "not_found": {
+      "title": "صفحه پیدا نشد | آرشیو",
+      "404": "404",
+      "heading": "گم شده در آرشیو",
+      "description": "متأسفیم، اما قطعه‌ای که به دنبال آن هستید در حال حاضر در مجموعه ما موجود نیست یا به جای دیگری منتقل شده است.",
+      "back_to_shop": "بازگشت به فروشگاه",
+      "report_error": "گزارش خطا به تیم کیوریتوری",
+      "system_error": "خطای سیستم",
+      "page_not_found": "صفحه مورد نظر یافت نشد",
+      "back_to_home": "بازگشت به خانه",
+      "previous_page": "صفحه قبلی",
+      "suggestions_title": "پیشنهادات برای شما:",
+      "suggestion_latest": "جدیدترین مجموعه‌ها",
+      "suggestion_top": "محصولات برتر",
+      "suggestion_support": "تماس با پشتیبانی"
+    },
+    "server_error": {
+      "title": "خطای ۵۰۰: وقفه در آرشیو",
+      "500": "500",
+      "heading": "خطای ۵۰۰: وقفه در آرشیو",
+      "internal_error_label": "Internal Server Error",
+      "internal_error_heading": "خطای داخلی سرور",
+      "description": "در حال حاضر مشکلی در برقراری ارتباط با مخزن داده‌های ما به وجود آمده است. تیم فنی ما در حال بررسی موضوع است. لطفاً کمی بعد دوباره تلاش کنید.",
+      "retry": "تلاش مجدد",
+      "back_to_home": "بازگشت به صفحه اصلی",
+      "error_id": "شناسه خطا: #99281-ARCHIVE",
+      "system_monitoring": "System Monitoring Active",
+      "checking_status": "وضعیت سیستم: در حال بررسی"
+    }
   }
 }

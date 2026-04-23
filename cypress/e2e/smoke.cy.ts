@@ -8,6 +8,7 @@ describe('Smoke Test - Page Rendering', () => {
     '/products',
     '/dashboard',
     '/dashboard/products',
+    '/dashboard/news',
     '/dashboard/orders',
     '/dashboard/users',
     '/login',
